@@ -1245,6 +1245,28 @@ $emailTemplateParameterCreate['properties']['type']['required'] = true;
 $emailTemplateParameterCreate['properties']['bcc']['required'] = true;
 $emailTemplateParameterCreate['properties']['is_default']['required'] = true;
 
+$incomingTagParameterCreate = array(
+    'description' => 'Incoming tag',
+    'location' => 'json',
+    'type' => 'object',
+    'sentAs' => 'incoming-tag',
+    'required' => true,
+    'properties' => array(
+        'incoming_id' => array(
+            'description' => 'ID of an incoming',
+            'type' => 'integer',
+            'sentAs' => 'incoming_id',
+            'required' => true,
+        ),
+        'name' => array(
+            'description' => 'Name of the tag',
+            'type' => 'string',
+            'sentAs' => 'name',
+            'required' => true,
+        )
+    )
+);
+
 $userPropertyValueParameter = array(
     'description' => 'User property value',
     'location' => 'json',
@@ -1269,6 +1291,88 @@ $userPropertyValueParameter = array(
             'type' => 'string',
             'sentAs' => 'value',
             'required' => true,
+        )
+    )
+);
+
+$incomingPaymentParameterCreate = array(
+    'description' => 'Incomings Payment',
+    'location' => 'json',
+    'type' => 'object',
+    'sentAs' => 'incoming-payment',
+    'required' => true,
+    'properties' => array(
+        'incoming_id' => array(
+            'description' => 'ID of the incoming',
+            'type' => 'integer',
+            'sentAs' => 'incoming_id',
+            'required' => true,
+        ),
+        'date' => array(
+            'description' => 'Date of payment. Default: today',
+            'type' => 'string',
+            'sentAs' => 'date',
+            'required' => false,
+        ),
+        'amount'  => array(
+            'description' => 'Payed amount',
+            'type'        => 'numeric',
+            'sentAs'      => 'amount',
+            'required'    => true
+        ),
+        'comment' => array(
+            'description' => 'Comment text',
+            'type' => 'string',
+            'sentAs' => 'comment',
+            'required' => false,
+        ),
+        'type' => array(
+            'description' => 'Payment type',
+            'type' => 'string',
+            'enum' => array('CREDIT_NOTE', 'BANK_CARD', 'BANK_TRANSFER', 'DEBIT', 'CASH', 'CHECK', 'PAYPAL', 'CREDIT_CARD', 'COUPON', 'MISC'),
+            'sentAs' => 'type',
+            'required' => false,
+        ),
+        'mark_invoice_as_paid' => array(
+            'description' => 'Mark associated invoice as paid. Default: 0',
+            'type' => 'integer',
+            'enum' => array(0, 1),
+            'sentAs' => 'mark_invoice_as_paid',
+            'required' => false,
+        )
+    )
+);
+
+$incomingInboxDocumentParameterCreate = array(
+    'description' => 'Inbox Document',
+    'location' => 'json',
+    'type' => 'object',
+    'sentAs' => 'inbox-document',
+    'required' => true,
+    'properties' => array(
+        'filename' => array(
+            'description' => 'filename',
+            'type' => 'string',
+            'sentAs' => 'filename',
+            'required' => true,
+        ),
+        'mimetype' => array(
+            'description' => 'Mime type of the file',
+            'type' => 'string',
+            'sentAs' => 'mimetype',
+            'required' => true,
+        ),
+        'base64file'  => array(
+            'description' => 'base64 coded template file',
+            'type'        => 'string',
+            'sentAs'      => 'base64file',
+            'required'    => false
+        ),
+        'metadata' => array(
+            'description' => 'Metadata',
+            'type' => 'array',
+            'sentAs' => 'metadata',
+            'required' => false,
         )
     )
 );
@@ -3855,5 +3959,219 @@ return array(
             )
         ),
 
+        'GetSuppliers' => array(
+            'httpMethod'       => 'GET',
+            'uri'              => '/api/suppliers',
+            'summary'          => 'List all suppliers',
+            'documentationUrl' => 'http://www.billomat.com/en/api/suppliers',
+            'parameters'       => array(
+                'name'  => array(
+                    'description' => 'Company name',
+                    'type'        => 'string',
+                    'location'    => 'query',
+                    'sentAs'      => 'name',
+                    'required'    => false
+                ),
+                'email'  => array(
+                    'description' => 'e-mail address',
+                    'type'        => 'string',
+                    'location'    => 'query',
+                    'sentAs'      => 'email',
+                    'required'    => false
+                ),
+                'first_name'  => array(
+                    'description' => 'First name of the contact person',
+                    'type'        => 'string',
+                    'location'    => 'query',
+                    'sentAs'      => 'first_name',
+                    'required'    => false
+                ),
+                'last_name'  => array(
+                    'description' => 'Last name of the contact person',
+                    'type'        => 'string',
+                    'location'    => 'query',
+                    'sentAs'      => 'last_name',
+                    'required'    => false
+                ),
+                'country_code'  => array(
+                    'description' => 'Country code as ISO 3166 Alpha-2',
+                    'type'        => 'string',
+                    'location'    => 'query',
+                    'sentAs'      => 'country_code',
+                    'required'    => false
+                ),
+                'creditor_identifier'  => array(
+                    'description' => 'SEPA creditor identifier',
+                    'type'        => 'string',
+                    'location'    => 'query',
+                    'sentAs'      => 'creditor_identifier',
+                    'required'    => false
+                ),
+                'note'  => array(
+                    'description' => 'Note',
+                    'type'        => 'string',
+                    'location'    => 'query',
+                    'sentAs'      => 'note',
+                    'required'    => false
+                ),
+                'client_number'  => array(
+                    'description' => 'Client number you may have at this supplier.',
+                    'type'        => 'string',
+                    'location'    => 'query',
+                    'sentAs'      => 'client_number',
+                    'required'    => false
+                ),
+                'incoming_id'  => array(
+                    'description' => 'ID of an incoming of this supplier, multiple values seperated with commas',
+                    'type'        => 'string',
+                    'location'    => 'query',
+                    'sentAs'      => 'incoming_id',
+                    'required'    => false
+                ),
+                'tags'  => array(
+                    'description' => 'Comma seperated list of tags',
+                    'type'        => 'string',
+                    'location'    => 'query',
+                    'sentAs'      => 'tags',
+                    'required'    => false
+                )
+            )
+        ),
+
+        'GetSupplier' => array(
+            'httpMethod'       => 'GET',
+            'uri'              => '/api/suppliers/{id}',
+            'summary'          => 'Get a specific supplier',
+            'documentationUrl' => 'http://www.billomat.com/en/api/suppliers',
+            'parameters'       => array(
+                'id'  => array(
+                    'description' => 'Supplier id',
+                    'location'    => 'uri',
+                    'type'        => 'integer',
+                    'sentAs'      => 'id',
+                    'required'    => true
+                )
+            )
+        ),
+
+        'GetIncomings' => array(
+            'httpMethod'       => 'GET',
+            'uri'              => '/api/incomings',
+            'summary'          => 'List all incomings',
+            'documentationUrl' => 'http://www.billomat.com/en/api/incomings',
+            'parameters'       => array(
+                'supplier_id'  => array(
+                    'description' => 'ID of the Suppliers',
+                    'type'        => 'integer',
+                    'location'    => 'query',
+                    'sentAs'      => 'supplier_id',
+                    'required'    => false
+                ),
+                'incoming_number'  => array(
+                    'description' => 'incoming number of the incoming',
+                    'type'        => 'varchar',
+                    'location'    => 'query',
+                    'sentAs'      => 'incoming_number',
+                    'required'    => false
+                ),
+                'status'  => array(
+                    'description' => 'Status (OPEN, PAID, OVERDUE). More than one statuses could be given as a comma separated list. Theses statuses will be logically OR-connected.',
+                    'type'        => 'string',
+                    'location'    => 'query',
+                    'sentAs'      => 'status',
+                    'required'    => false
+                ),
+                'from'  => array(
+                    'description' => 'Only show incomings since this date (format YYYY-MM-DD)',
+                    'type'        => 'string',
+                    'location'    => 'query',
+                    'sentAs'      => 'from',
+                    'required'    => false
+                ),
+                'to'  => array(
+                    'description' => 'Only show incomings up to this date (format YYYY-MM-DD)',
+                    'type'        => 'string',
+                    'location'    => 'query',
+                    'sentAs'      => 'to',
+                    'required'    => false
+                ),
+                'note'  => array(
+                    'description' => 'Free text search in notes',
+                    'type'        => 'string',
+                    'location'    => 'query',
+                    'sentAs'      => 'note',
+                    'required'    => false
+                ),
+                'tags'  => array(
+                    'description' => 'Comma seperated list of tags',
+                    'type'        => 'varchar',
+                    'location'    => 'query',
+                    'sentAs'      => 'tags',
+                    'required'    => false
+                )
+            )
+        ),
+
+        'GetIncomingPdf' => array(
+            'httpMethod'       => 'GET',
+            'uri'              => '/api/incomings/{id}/pdf',
+            'summary'          => 'Open pdf of an incoming',
+            'documentationUrl' => 'http://www.billomat.com/en/api/incoming',
+            'parameters'       => array(
+                'id'  => array(
+                    'description' => 'Incoming id',
+                    'location'    => 'uri',
+                    'type'        => 'integer',
+                    'sentAs'      => 'id',
+                    'required'    => true
+                ),
+                'accept'  => array(
+                    'description' => 'Accept header',
+                    'location'    => 'header',
+                    'type'        => 'string',
+                    'enum' => array('application/pdf'),
+                    'sentAs'      => 'Accept',
+                    'required'    => false
+                ),
+                'format'  => array(
+                    'description' => 'Response format',
+                    'location'    => 'query',
+                    'type'        => 'string',
+                    'enum' => array('pdf'),
+                    'sentAs'      => 'format',
+                    'required'    => false
+                )
+            )
+        ),
+
+        'CreateIncomingTag' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => '/api/incoming-tags',
+            'summary'          => 'Create an incoming tag',
+            'documentationUrl' => 'http://www.billomat.com/en/api/incomings/tags',
+            'parameters'       => array(
+                'incoming-tag'  => $incomingTagParameterCreate
+            )
+        ),
+
+        'CreateIncomingPayment' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => '/api/incoming-payments',
+            'summary'          => 'Create an incoming payment',
+            'documentationUrl' => 'http://www.billomat.com/en/api/incoming/payments',
+            'parameters'       => array(
+                'incoming-payment'  => $incomingPaymentParameterCreate
+            )
+        ),
+
+        'CreateIncomingInboxDocument' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => '/api/inbox-documents',
+            'summary'          => 'Create an inbox document',
+            'documentationUrl' => 'http://www.billomat.com/en/api/incomings/inbox',
+            'parameters'       => array(
+                'inbox-document'  => $incomingInboxDocumentParameterCreate
+            )
+        ),
     ),
 );
