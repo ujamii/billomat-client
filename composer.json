@@ -1,5 +1,5 @@
 {
-    "name": "phobetor/billomat",
+    "name": "vrok/billomat",
     "type": "library",
     "license": "MIT",
     "description": "PHP library for interacting with the Billomat REST API",
@@ -21,11 +21,8 @@
         "guzzlehttp/guzzle": "^6.3.3"
     },
     "autoload": {
-        "psr-0": {
-            "Phobetor\\": "src/"
-        },
-        "classmap": [
-            "./"
-        ]
+        "psr-4": {
+            "Phobetor\\Billomat\\": "src/"
+        }
     }
 }

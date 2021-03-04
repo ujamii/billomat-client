@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 3.0.0
+* added more service calls, © @netzkollektiv
+* added more error codes © @scratchy
+* updated PHP + Guzzle requirements
+* moved from PSR-0 to PSR-4
+
 ## 2.0.0
 
 * added authentication of registered apps
