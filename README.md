@@ -1,6 +1,6 @@
 # A PHP Billomat API Client
 
-[![Latest Stable Version](https://poser.pugx.org/phobetor/billomat/v/stable.png)](https://packagist.org/packages/phobetor/billomat) [![License](https://poser.pugx.org/phobetor/billomat/license.png)](https://packagist.org/packages/phobetor/billomat)
+[![Latest Stable Version](https://poser.pugx.org/vrok/billomat/v/stable.png)](https://packagist.org/packages/vrok/billomat) [![License](https://poser.pugx.org/vrok/billomat/license.png)](https://packagist.org/packages/vrok/billomat)
 
 ## Introduction
 
@@ -33,18 +33,13 @@ All methods on the following assets are supported:
 
 ## Dependencies
 
-* [Guzzle library](http://guzzlephp.org): >= 3.5
-
-## Integration with frameworks
-
-If you want to use this client with Symfony 2, there is a ready-to-use bundle:
-
-* [billomat-bundle](https://github.com/phobetor/billomat-bundle): a Symfony 2 bundle
+* [Guzzle library](http://guzzlephp.org): >= 7.2
+* PHP >= 7.4, ext-curl
 
 ## Installation via composer
 
 ```sh
-php composer.phar require phobetor/billomat:~1.5
+composer require vrok/billomat
 ```
 
 ## How to use this
@@ -125,7 +120,9 @@ All the other methods return `array` values.
 ### Exception handling
 
 This client creates exceptions from Billomat errors based on the HTTP status code and filled with the error message provided by the Billomat API.
-All exceptions implement the `Phobetor\Billomat\Exception\ExceptionInterface` interface, so you can catch this to handle everything.
+All exceptions are `GuzzleHttp\Command\Exception\CommandException` and contain a
+`Phobetor\Billomat\Exception\ExceptionInterface` as `$e->getPrevious()`, 
+so you can catch this to handle everything.
 You can find all exceptions in the `Phobetor\Billomat\Exception` folder.
 
 Usage example:
@@ -140,18 +137,22 @@ try {
         )
     ));
 }
-catch (\Phobetor\Billomat\Exception\NotFoundException $e) {
-    // There seems to be no such client.
-}
-catch (\Phobetor\Billomat\Exception\BadRequestException $e) {
-    // Some of the given data must have been bad. $e->getMessage() could help.
-}
-catch (\Phobetor\Billomat\Exception\TooManyRequestsException $e) {
-    // The rate limit was reached. $e->getRateLimitReset() returns the UTC timestamp of the next rate limit reset.
-    // @see http://www.billomat.com/en/api/basics/rate-limiting for details about the rate limit.
-}
-catch (\Phobetor\Billomat\ExceptionInterface $e) {
-    // Something else failed. Maybe there is no connection to the API servers.
+catch (GuzzleHttp\Command\Exception\CommandException $e) {
+    switch (get_class($e->getPrevious())) {
+        case \Phobetor\Billomat\Exception\NotFoundException::class: 
+            // There seems to be no such client.
+            break;
+        case \Phobetor\Billomat\Exception\BadRequestException::class:
+            // Some of the given data must have been bad. $e->getMessage() could help.
+            breaK;
+        case \Phobetor\Billomat\Exception\TooManyRequestsException::class:
+            // The rate limit was reached. $e->getRateLimitReset() returns the UTC timestamp of the next rate limit reset.
+            // @see http://www.billomat.com/en/api/basics/rate-limiting for details about the rate limit.
+            breaK;
+        default:
+            // Something else failed. Maybe there is no connection to the API servers.
+            break;
+    }
 }
 ```
 
@@ -180,148 +181,165 @@ $billomat->setDoWaitForRateLimitReset(true);
 ### Complete method reference
 
 CLIENT RELATED METHODS [doc](http://www.billomat.com/en/api/clients):
-* array getClients(array $args = array())
-* array getClient(array $args = array())
-* array getClientMyself(array $args = array())
-* array createClient(array $args = array())
-* array updateClient(array $args = array())
-* void deleteClient(array $args = array())
+* array getClients(array $args = [])
+* array getClient(array $args = [])
+* array getClientMyself(array $args = [])
+* array createClient(array $args = [])
+* array updateClient(array $args = [])
+* void deleteClient(array $args = [])
 
 CLIENT PROPERTY VALUE RELATED METHODS [doc](http://www.billomat.com/en/api/clients/properties):
-* array getClientPropertyValues(array $args = array())
-* array getClientPropertyValue(array $args = array())
-* array setClientPropertyValue(array $args = array())
+* array getClientPropertyValues(array $args = [])
+* array getClientPropertyValue(array $args = [])
+* array setClientPropertyValue(array $args = [])
 
 ARTICLE RELATED METHODS [doc](http://www.billomat.com/en/api/articles):
-* array getArticles(array $args = array())
-* array getArticle(array $args = array())
-* array createArticle(array $args = array())
-* array updateArticle(array $args = array())
-* void deleteArticle(array $args = array())
+* array getArticles(array $args = [])
+* array getArticle(array $args = [])
+* array createArticle(array $args = [])
+* array updateArticle(array $args = [])
+* void deleteArticle(array $args = [])
 
 ARTICLE PROPERTY VALUE RELATED METHODS [doc](http://www.billomat.com/en/api/articles/properties):
-* array getArticlePropertyValues(array $args = array())
-* array getArticlePropertyValue(array $args = array())
-* array setArticlePropertyValue(array $args = array())
+* array getArticlePropertyValues(array $args = [])
+* array getArticlePropertyValue(array $args = [])
+* array setArticlePropertyValue(array $args = [])
 
 INVOICE RELATED METHODS [doc](http://www.billomat.com/en/api/invoices):
-* array getInvoices(array $args = array())
-* array getInvoice(array $args = array())
-* array createInvoice(array $args = array())
-* array updateInvoice(array $args = array())
-* array completeInvoice(array $args = array())
-* \Guzzle\Http\Message\Response getInvoicePdf(array $args = array())
-* array signInvoice(array $args = array())
-* array sendInvoiceEmail(array $args = array())
-* array cancelInvoice(array $args = array())
-* array undoCancelInvoice(array $args = array())
-* void deleteInvoice(array $args = array())
+* array getInvoices(array $args = [])
+* array getInvoice(array $args = [])
+* array createInvoice(array $args = [])
+* array updateInvoice(array $args = [])
+* array completeInvoice(array $args = [])
+* \Guzzle\Http\Message\Response getInvoicePdf(array $args = [])
+* array signInvoice(array $args = [])
+* array sendInvoiceEmail(array $args = [])
+* array cancelInvoice(array $args = [])
+* array undoCancelInvoice(array $args = [])
+* void deleteInvoice(array $args = [])
 
 INVOICE ITEM RELATED METHODS [doc](http://www.billomat.com/en/api/invoices/items):
-* array getInvoiceItems(array $args = array())
-* array getInvoiceItem(array $args = array())
-* array createInvoiceItem(array $args = array())
-* array updateInvoiceItem(array $args = array())
-* void deleteInvoiceItem(array $args = array())
+* array getInvoiceItems(array $args = [])
+* array getInvoiceItem(array $args = [])
+* array createInvoiceItem(array $args = [])
+* array updateInvoiceItem(array $args = [])
+* void deleteInvoiceItem(array $args = [])
 
 INVOICE PAYMENT RELATED METHODS [doc](http://www.billomat.com/en/api/invoices/payments):
-* array getInvoicePayments(array $args = array())
-* array getInvoicePayment(array $args = array())
-* array createInvoicePayment(array $args = array())
-* array deleteInvoicePayment(array $args = array())
+* array getInvoicePayments(array $args = [])
+* array getInvoicePayment(array $args = [])
+* array createInvoicePayment(array $args = [])
+* array deleteInvoicePayment(array $args = [])
 
 INVOICE TAG RELATED METHODS [doc](http://www.billomat.com/en/api/invoices/tags):
-* array getInvoiceTagCloud(array $args = array())
-* array getInvoiceTags(array $args = array())
-* array getInvoiceTag(array $args = array())
-* array createInvoiceTag(array $args = array())
-* array deleteInvoiceTag(array $args = array())
+* array getInvoiceTagCloud(array $args = [])
+* array getInvoiceTags(array $args = [])
+* array getInvoiceTag(array $args = [])
+* array createInvoiceTag(array $args = [])
+* array deleteInvoiceTag(array $args = [])
 
 CREDIT NOTE RELATED METHODS [doc](http://www.billomat.com/en/api/credit-notes):
-* array getCreditNotes(array $args = array())
-* array getCreditNote(array $args = array())
-* array createCreditNote(array $args = array())
-* array updateCreditNote(array $args = array())
-* array completeCreditNote(array $args = array())
-* \Guzzle\Http\Message\Response getCreditNotePdf(array $args = array())
-* array signCreditNote(array $args = array())
-* array sendCreditNoteEmail(array $args = array())
-* void deleteCreditNote(array $args = array())
+* array getCreditNotes(array $args = [])
+* array getCreditNote(array $args = [])
+* array createCreditNote(array $args = [])
+* array updateCreditNote(array $args = [])
+* array completeCreditNote(array $args = [])
+* \Guzzle\Http\Message\Response getCreditNotePdf(array $args = [])
+* array signCreditNote(array $args = [])
+* array sendCreditNoteEmail(array $args = [])
+* void deleteCreditNote(array $args = [])
 
 CREDIT NOTE ITEM RELATED METHODS [doc](http://www.billomat.com/en/api/credit-notes/items):
-* array getCreditNoteItems(array $args = array())
-* array getCreditNoteItem(array $args = array())
-* array createCreditNoteItem(array $args = array())
-* array updateCreditNoteItem(array $args = array())
-* void deleteCreditNoteItem(array $args = array())
+* array getCreditNoteItems(array $args = [])
+* array getCreditNoteItem(array $args = [])
+* array createCreditNoteItem(array $args = [])
+* array updateCreditNoteItem(array $args = [])
+* void deleteCreditNoteItem(array $args = [])
 
 CREDIT NOTE PAYMENT RELATED METHODS [doc](http://www.billomat.com/en/api/invoices/credit-notes):
-* array getCreditNotePayments(array $args = array())
-* array getCreditNotePayment(array $args = array())
-* array createCreditNotePayment(array $args = array())
-* array deleteCreditNotePayment(array $args = array())
+* array getCreditNotePayments(array $args = [])
+* array getCreditNotePayment(array $args = [])
+* array createCreditNotePayment(array $args = [])
+* array deleteCreditNotePayment(array $args = [])
 
 TEMPLATE RELATED METHODS [doc](http://www.billomat.com/en/api/templates):
-* array getTemplates(array $args = array())
-* array getTemplate(array $args = array())
-* \Guzzle\Http\Message\Response getTemplatePreview(array $args = array())
-* array createTemplate(array $args = array())
-* array updateTemplate(array $args = array())
-* void deleteTemplate(array $args = array())
+* array getTemplates(array $args = [])
+* array getTemplate(array $args = [])
+* \Guzzle\Http\Message\Response getTemplatePreview(array $args = [])
+* array createTemplate(array $args = [])
+* array updateTemplate(array $args = [])
+* void deleteTemplate(array $args = [])
 
 ARTICLE PROPERTY RELATED METHODS [doc](http://www.billomat.com/en/api/settings/article-properties):
-* array getArticleProperties(array $args = array())
-* array getArticleProperty(array $args = array())
-* array createArticleProperty(array $args = array())
-* array updateArticleProperty(array $args = array())
-* void deleteArticleProperty(array $args = array())
+* array getArticleProperties(array $args = [])
+* array getArticleProperty(array $args = [])
+* array createArticleProperty(array $args = [])
+* array updateArticleProperty(array $args = [])
+* void deleteArticleProperty(array $args = [])
 
 CLIENT PROPERTY RELATED METHODS [doc](http://www.billomat.com/en/api/settings/client-properties):
-* array getClientProperties(array $args = array())
-* array getClientProperty(array $args = array())
-* array createClientProperty(array $args = array())
-* array updateClientProperty(array $args = array())
-* void deleteClientProperty(array $args = array())
+* array getClientProperties(array $args = [])
+* array getClientProperty(array $args = [])
+* array createClientProperty(array $args = [])
+* array updateClientProperty(array $args = [])
+* void deleteClientProperty(array $args = [])
 
 USER PROPERTY RELATED METHODS [doc](http://www.billomat.com/en/api/settings/user-properties):
-* array getUserProperties(array $args = array())
-* array getUserProperty(array $args = array())
-* array createUserProperty(array $args = array())
-* array updateUserProperty(array $args = array())
-* void deleteUserProperty(array $args = array())
+* array getUserProperties(array $args = [])
+* array getUserProperty(array $args = [])
+* array createUserProperty(array $args = [])
+* array updateUserProperty(array $args = [])
+* void deleteUserProperty(array $args = [])
 
 TAX RELATED METHODS [doc](http://www.billomat.com/en/api/settings/taxes):
-* array getTaxes(array $args = array())
-* array getTax(array $args = array())
-* array createTax(array $args = array())
-* array updateTax(array $args = array())
-* void deleteTax(array $args = array())
+* array getTaxes(array $args = [])
+* array getTax(array $args = [])
+* array createTax(array $args = [])
+* array updateTax(array $args = [])
+* void deleteTax(array $args = [])
 
 COUNTRY TAX RELATED METHODS [doc](http://www.billomat.com/en/api/settings/tax-free-countries):
-* array getCountryTaxes(array $args = array())
-* array getCountryTax(array $args = array())
-* array createCountryTax(array $args = array())
-* array updateCountryTax(array $args = array())
-* void deleteCountryTax(array $args = array())
+* array getCountryTaxes(array $args = [])
+* array getCountryTax(array $args = [])
+* array createCountryTax(array $args = [])
+* array updateCountryTax(array $args = [])
+* void deleteCountryTax(array $args = [])
 
 REMINDER TEXT RELATED METHODS [doc](http://www.billomat.com/en/api/settings/reminder-texts):
-* array getReminderTexts(array $args = array())
-* array getReminderText(array $args = array())
-* array createReminderText(array $args = array())
-* array updateReminderText(array $args = array())
-* void deleteReminderText(array $args = array())
+* array getReminderTexts(array $args = [])
+* array getReminderText(array $args = [])
+* array createReminderText(array $args = [])
+* array updateReminderText(array $args = [])
+* void deleteReminderText(array $args = [])
 
 EMAIL TEMPLATE RELATED METHODS [doc](http://www.billomat.com/en/api/settings/email-vorlagen):
-* array getEmailTemplates(array $args = array())
-* array getEmailTemplate(array $args = array())
-* array createEmailTemplate(array $args = array())
-* array updateEmailTemplate(array $args = array())
-* void deleteEmailTemplate(array $args = array())
+* array getEmailTemplates(array $args = [])
+* array getEmailTemplate(array $args = [])
+* array createEmailTemplate(array $args = [])
+* array updateEmailTemplate(array $args = [])
+* void deleteEmailTemplate(array $args = [])
 
 USER PROPERTY VALUE RELATED METHODS [doc](http://www.billomat.com/en/api/users/properties):
-* array getUserPropertyValues(array $args = array())
-* array getUserPropertyValue(array $args = array())
-* array setUserPropertyValue(array $args = array())
+* array getUserPropertyValues(array $args = [])
+* array getUserPropertyValue(array $args = [])
+* array setUserPropertyValue(array $args = [])
+
+SUPPLIER RELATED METHODS [doc](https://www.billomat.com/en/api/suppliers/):
+* array getSupplier(array $args = [])
+* array getSuppliers(array $args = [])
+
+INCOMING INVOICES [doc](https://www.billomat.com/en/api/incomings/):
+* array getIncomings(array $args = [])
+* array getIncomingPdf(array $args = [])
+
+INCOMING INVOICE TAGS [doc](http://www.billomat.com/en/api/incomings/tags):
+* array createIncomingTag(array $args = [])
+
+INCOMING PAYMENTS [doc](https://www.billomat.com/en/api/incomings/payments/):  
+* array createIncomingPayment(array $args = [])
+
+INCOMING DOCUMENTS [doc](http://www.billomat.com/en/api/incomings/inbox):
+* array createIncomingInboxDocument(array $args = [])
 
 ### API glitches handled by this client internally
 

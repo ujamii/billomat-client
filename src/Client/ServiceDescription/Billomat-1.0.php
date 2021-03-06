@@ -1,1018 +1,1018 @@
 <?php
 
-$clientParameter = array(
+$clientParameter = [
     'description' => 'Client',
     'location' => 'json',
     'type' => 'object',
     'sentAs' => 'client',
     'required' => true,
-    'properties' => array(
-        'archived' => array(
+    'properties' => [
+        'archived' => [
             'description' => 'State of archival storage (1=archived, 0=active)',
             'type' => 'integer',
-            'enum' => array(1, 0),
+            'enum' => [1, 0],
             'sentAs' => 'archived',
             'required' => false,
-        ),
-        'number_pre' => array(
+        ],
+        'number_pre' => [
             'description' => 'Prefix. Default: Value from settings',
             'type' => 'string',
             'sentAs' => 'number_pre',
             'required' => false,
-        ),
-        'number' => array(
+        ],
+        'number' => [
             'description' => 'Sequential number. Default: Next free number',
             'type' => 'integer',
             'sentAs' => 'number',
             'required' => false,
-        ),
-        'number_length' => array(
+        ],
+        'number_length' => [
             'description' => 'Minimum length of the customer number (to be filled with leading zeros). Default: Value from settings',
             'type' => 'integer',
             'sentAs' => 'number_length',
             'required' => false,
-        ),
-        'name' => array(
+        ],
+        'name' => [
             'description' => 'Company name',
             'type' => 'string',
             'sentAs' => 'name',
             'required' => false,
-        ),
-        'street' => array(
+        ],
+        'street' => [
             'description' => 'Street',
             'type' => 'string',
             'sentAs' => 'street',
             'required' => false,
-        ),
-        'zip' => array(
+        ],
+        'zip' => [
             'description' => 'Zip code',
             'type' => 'string',
             'sentAs' => 'zip',
             'required' => false,
-        ),
-        'city' => array(
+        ],
+        'city' => [
             'description' => 'City',
             'type' => 'string',
             'sentAs' => 'city',
             'required' => false,
-        ),
-        'state' => array(
+        ],
+        'state' => [
             'description' => 'State, county, district, region',
             'type' => 'string',
             'sentAs' => 'state',
             'required' => false,
-        ),
-        'country_code' => array(
+        ],
+        'country_code' => [
             'description' => 'Country code as ISO 3166 Alpha-2. Default: Value from your own company',
             'type' => 'string',
             'sentAs' => 'country_code',
             'required' => false,
-        ),
-        'first_name' => array(
+        ],
+        'first_name' => [
             'description' => 'First name',
             'type' => 'string',
             'sentAs' => 'first_name',
             'required' => false,
-        ),
-        'last_name' => array(
+        ],
+        'last_name' => [
             'description' => 'Last name',
             'type' => 'string',
             'sentAs' => 'last_name',
             'required' => false,
-        ),
-        'salutation' => array(
+        ],
+        'salutation' => [
             'description' => 'Salutation',
             'type' => 'string',
             'sentAs' => 'salutation',
             'required' => false,
-        ),
-        'phone' => array(
+        ],
+        'phone' => [
             'description' => 'Phone number',
             'type' => 'string',
             'sentAs' => 'phone',
             'required' => false,
-        ),
-        'fax' => array(
+        ],
+        'fax' => [
             'description' => 'Fax number',
             'type' => 'string',
             'sentAs' => 'fax',
             'required' => false,
-        ),
-        'mobile' => array(
+        ],
+        'mobile' => [
             'description' => 'Mobile number',
             'type' => 'string',
             'sentAs' => 'mobile',
             'required' => false,
-        ),
-        'email' => array(
+        ],
+        'email' => [
             'description' => 'Valid email address',
             'type' => 'string',
             'sentAs' => 'email',
             'required' => false,
-        ),
-        'www' => array(
+        ],
+        'www' => [
             'description' => 'Website URL (w/o http)',
             'type' => 'string',
             'sentAs' => 'www',
             'required' => false,
-        ),
-        'tax_number' => array(
+        ],
+        'tax_number' => [
             'description' => 'Tax number',
             'type' => 'string',
             'sentAs' => 'tax_number',
             'required' => false,
-        ),
-        'vat_number' => array(
+        ],
+        'vat_number' => [
             'description' => 'VAT number',
             'type' => 'string',
             'sentAs' => 'vat_number',
             'required' => false,
-        ),
-        'bank_account_number' => array(
+        ],
+        'bank_account_number' => [
             'description' => 'Bank account number',
             'type' => 'string',
             'sentAs' => 'bank_account_number',
             'required' => false,
-        ),
-        'bank_account_owner' => array(
+        ],
+        'bank_account_owner' => [
             'description' => 'Bank account owner',
             'type' => 'string',
             'sentAs' => 'bank_account_owner',
             'required' => false,
-        ),
-        'bank_number' => array(
+        ],
+        'bank_number' => [
             'description' => 'Bank identifier code',
             'type' => 'string',
             'sentAs' => 'bank_number',
             'required' => false,
-        ),
-        'bank_name' => array(
+        ],
+        'bank_name' => [
             'description' => 'Bank name',
             'type' => 'string',
             'sentAs' => 'bank_name',
             'required' => false,
-        ),
-        'bank_swift' => array(
+        ],
+        'bank_swift' => [
             'description' => 'SWIFT/BIC',
             'type' => 'string',
             'sentAs' => 'bank_swift',
             'required' => false,
-        ),
-        'bank_iban' => array(
+        ],
+        'bank_iban' => [
             'description' => 'IBAN',
             'type' => 'string',
             'sentAs' => 'bank_iban',
             'required' => false,
-        ),
-        'sepa_mandate' => array(
+        ],
+        'sepa_mandate' => [
             'description' => 'Mandate reference of a SEPA Direct Debit mandate',
             'type' => 'string',
             'sentAs' => 'sepa_mandate',
             'required' => false,
-        ),
-        'sepa_mandate_date' => array(
+        ],
+        'sepa_mandate_date' => [
             'description' => 'Date of issue of the SEPA Direct Debit mandate',
             'type' => 'string',
             'sentAs' => 'sepa_mandate_date',
             'required' => false,
-        ),
-        'tax_rule' => array(
+        ],
+        'tax_rule' => [
             'description' => 'Tax Rule',
             'type' => 'string',
-            'enum' => array('TAX', 'NO_TAX', 'COUNTRY'),
+            'enum' => ['TAX', 'NO_TAX', 'COUNTRY'],
             'sentAs' => 'tax_rule',
             'required' => false,
-        ),
-        'net_gross' => array(
+        ],
+        'net_gross' => [
             'description' => 'Price basis (net, gross, according to account settings)',
             'type' => 'string',
-            'enum' => array('NET', 'GROSS', 'SETTINGS'),
+            'enum' => ['NET', 'GROSS', 'SETTINGS'],
             'sentAs' => 'net_gross',
             'required' => false,
-        ),
-        'note' => array(
+        ],
+        'note' => [
             'description' => 'Note',
             'type' => 'string',
             'sentAs' => 'note',
             'required' => false,
-        ),
-        'discount_rate_type' => array(
+        ],
+        'discount_rate_type' => [
             'description' => 'Type of the default value for discount rate',
             'type' => 'string',
-            'enum' => array('SETTINGS', 'ABSOLUTE', 'RELATIVE'),
+            'enum' => ['SETTINGS', 'ABSOLUTE', 'RELATIVE'],
             'sentAs' => 'discount_rate_type',
             'required' => false,
-        ),
-        'discount_rate' => array(
+        ],
+        'discount_rate' => [
             'description' => 'Discount rate',
             'type' => 'number',
             'sentAs' => 'discount_rate',
             'required' => false,
-        ),
-        'discount_days_type' => array(
+        ],
+        'discount_days_type' => [
             'description' => 'Type of the default value for discount interval',
             'type' => 'string',
-            'enum' => array('SETTINGS', 'ABSOLUTE', 'RELATIVE'),
+            'enum' => ['SETTINGS', 'ABSOLUTE', 'RELATIVE'],
             'sentAs' => 'discount_days_type',
             'required' => false,
-        ),
-        'discount_days' => array(
+        ],
+        'discount_days' => [
             'description' => 'Discount period in days',
             'type' => 'integer',
             'sentAs' => 'discount_days',
             'required' => false,
-        ),
-        'due_days_type' => array(
+        ],
+        'due_days_type' => [
             'description' => 'Type of the default value for maturity',
             'type' => 'string',
-            'enum' => array('SETTINGS', 'ABSOLUTE', 'RELATIVE'),
+            'enum' => ['SETTINGS', 'ABSOLUTE', 'RELATIVE'],
             'sentAs' => 'due_days_type',
             'required' => false,
-        ),
-        'due_days' => array(
+        ],
+        'due_days' => [
             'description' => 'Maturity in days from invoice date',
             'type' => 'integer',
             'sentAs' => 'due_days',
             'required' => false,
-        ),
-        'reminder_due_days_type' => array(
+        ],
+        'reminder_due_days_type' => [
             'description' => 'Type of the default value for reminder maturity',
             'type' => 'string',
-            'enum' => array('SETTINGS', 'ABSOLUTE', 'RELATIVE'),
+            'enum' => ['SETTINGS', 'ABSOLUTE', 'RELATIVE'],
             'sentAs' => 'reminder_due_days_type',
             'required' => false,
-        ),
-        'reminder_due_days' => array(
+        ],
+        'reminder_due_days' => [
             'description' => 'Reminder maturity',
             'type' => 'integer',
             'sentAs' => 'reminder_due_days',
             'required' => false,
-        ),
-        'offer_validity_days_type' => array(
+        ],
+        'offer_validity_days_type' => [
             'description' => 'Type of the default value for validity of estimates',
             'type' => 'string',
-            'enum' => array('SETTINGS', 'ABSOLUTE', 'RELATIVE'),
+            'enum' => ['SETTINGS', 'ABSOLUTE', 'RELATIVE'],
             'sentAs' => 'offer_validity_days_type',
             'required' => false,
-        ),
-        'offer_validity_days' => array(
+        ],
+        'offer_validity_days' => [
             'description' => 'Validity of estimates',
             'type' => 'integer',
             'sentAs' => 'offer_validity_days',
             'required' => false,
-        ),
-        'price_group' => array(
+        ],
+        'price_group' => [
             'description' => 'Articles can have several prices. The pricegroup defines which price applies to the client.',
             'type' => 'integer',
             'sentAs' => 'price_group',
             'required' => false,
-        ),
-    )
-);
+        ],
+    ]
+];
 
-$clientPropertyValueParameter = array(
+$clientPropertyValueParameter = [
     'description' => 'Client property value',
     'location' => 'json',
     'type' => 'object',
     'sentAs' => 'client-property-value',
     'required' => true,
-    'properties' => array(
-        'client_id' => array(
+    'properties' => [
+        'client_id' => [
             'description' => 'ID of the client',
             'type' => 'integer',
             'sentAs' => 'client_id',
             'required' => true,
-        ),
-        'client_property_id' => array(
+        ],
+        'client_property_id' => [
             'description' => 'ID of the property',
             'type' => 'integer',
             'sentAs' => 'client_property_id',
             'required' => true,
-        ),
-        'value' => array(
+        ],
+        'value' => [
             'description' => 'Property value',
             'type' => 'string',
             'sentAs' => 'value',
             'required' => true,
-        )
-    )
-);
+        ]
+    ]
+];
 
-$articleParameter = array(
+$articleParameter = [
     'description' => 'Article',
     'location' => 'json',
     'type' => 'object',
     'sentAs' => 'article',
     'required' => true,
-    'properties' => array(
-        'number_pre' => array(
+    'properties' => [
+        'number_pre' => [
             'description' => 'Prefix. Default: Value from settings',
             'type' => 'string',
             'sentAs' => 'number_pre',
             'required' => false,
-        ),
-        'number' => array(
+        ],
+        'number' => [
             'description' => 'Sequential number. Default: Next free number',
             'type' => 'integer',
             'sentAs' => 'number',
             'required' => false,
-        ),
-        'number_length' => array(
+        ],
+        'number_length' => [
             'description' => 'Minimum length of the article number (to be filled with leading zeros). Default: Value from settings',
             'type' => 'integer',
             'sentAs' => 'number_length',
             'required' => false,
-        ),
-        'title' => array(
+        ],
+        'title' => [
             'description' => 'Title',
             'type' => 'string',
             'sentAs' => 'title',
             'required' => false,
-        ),
-        'description' => array(
+        ],
+        'description' => [
             'description' => 'Description',
             'type' => 'string',
             'sentAs' => 'description',
             'required' => false,
-        ),
-        'sales_price' => array(
+        ],
+        'sales_price' => [
             'description' => 'Price',
             'type' => 'number',
             'sentAs' => 'sales_price',
             'required' => false,
-        ),
-        'sales_price2' => array(
+        ],
+        'sales_price2' => [
             'description' => 'Price for clients which are members of pricegroup 2. The normal price is used if no price is defined.',
             'type' => 'number',
             'sentAs' => 'sales_price2',
             'required' => false,
-        ),
-        'sales_price3' => array(
+        ],
+        'sales_price3' => [
             'description' => 'Price for clients which are members of pricegroup 3. The normal price is used if no price is defined.',
             'type' => 'number',
             'sentAs' => 'sales_price3',
             'required' => false,
-        ),
-        'sales_price4' => array(
+        ],
+        'sales_price4' => [
             'description' => 'Price for clients which are members of pricegroup 4. The normal price is used if no price is defined.',
             'type' => 'number',
             'sentAs' => 'sales_price4',
             'required' => false,
-        ),
-        'sales_price5' => array(
+        ],
+        'sales_price5' => [
             'description' => 'Price for clients which are members of pricegroup 5. The normal price is used if no price is defined.',
             'type' => 'number',
             'sentAs' => 'sales_price5',
             'required' => false,
-        ),
-        'currency_code' => array(
+        ],
+        'currency_code' => [
             'description' => 'ISO currency code',
             'type' => 'string',
             'sentAs' => 'currency_code',
             'required' => false,
-        ),
-        'unit_id' => array(
+        ],
+        'unit_id' => [
             'description' => 'ID of the chosen unit',
             'type' => 'integer',
             'sentAs' => 'unit_id',
             'required' => false,
-        ),
-        'tax_id' => array(
+        ],
+        'tax_id' => [
             'description' => 'ID of the chosen tax rate',
             'type' => 'integer',
             'sentAs' => 'tax_id',
             'required' => false,
-        ),
-    )
-);
+        ],
+    ]
+];
 
-$articlePropertyValueParameter = array(
+$articlePropertyValueParameter = [
     'description' => 'Article property value',
     'location' => 'json',
     'type' => 'object',
     'sentAs' => 'article-property-value',
     'required' => true,
-    'properties' => array(
-        'article_id' => array(
+    'properties' => [
+        'article_id' => [
             'description' => 'ID of the article',
             'type' => 'integer',
             'sentAs' => 'article_id',
             'required' => true,
-        ),
-        'article_property_id' => array(
+        ],
+        'article_property_id' => [
             'description' => 'ID of the property',
             'type' => 'integer',
             'sentAs' => 'article_property_id',
             'required' => true,
-        ),
-        'value' => array(
+        ],
+        'value' => [
             'description' => 'Property value',
             'type' => 'string',
             'sentAs' => 'value',
             'required' => true,
-        )
-    )
-);
+        ]
+    ]
+];
 
-$invoiceItemParameter = array(
+$invoiceItemParameter = [
     'description' => 'Invoice item',
     'location' => 'json',
     'type' => 'object',
-    'properties' => array(
-        'invoice_id' => array(
+    'properties' => [
+        'invoice_id' => [
             'description' => 'ID of the invoice',
             'type' => 'integer',
             'sentAs' => 'invoice_id',
             'required' => false,
-        ),
-        'article_id' => array(
+        ],
+        'article_id' => [
             'description' => 'ID of the article, sets additionally the values from the article on creation',
             'type' => 'integer',
             'sentAs' => 'article_id',
             'required' => false,
-        ),
-        'unit' => array(
+        ],
+        'unit' => [
             'description' => 'Unit',
             'type' => 'string',
             'sentAs' => 'unit',
             'required' => false,
-        ),
-        'quantity' => array(
+        ],
+        'quantity' => [
             'description' => 'Quantity',
             'type' => 'number',
             'sentAs' => 'quantity',
             'required' => false,
-        ),
-        'unit_price' => array(
+        ],
+        'unit_price' => [
             'description' => 'Price per unit. Default: 0.0000',
             'type' => 'number',
             'sentAs' => 'unit_price',
             'required' => false,
-        ),
-        'tax_name' => array(
+        ],
+        'tax_name' => [
             'description' => 'Name of the tax. Default: Value taken from the settings',
             'type' => 'string',
             'sentAs' => 'tax_name',
             'required' => false,
-        ),
-        'tax_rate' => array(
+        ],
+        'tax_rate' => [
             'description' => 'Rate of taxation. Default: Value taken from the settings',
             'type' => 'number',
             'sentAs' => 'tax_rate',
             'required' => false,
-        ),
-        'title' => array(
+        ],
+        'title' => [
             'description' => 'Title',
             'type' => 'string',
             'sentAs' => 'title',
             'required' => false,
-        ),
-        'description' => array(
+        ],
+        'description' => [
             'description' => 'Description',
             'type' => 'string',
             'sentAs' => 'description',
             'required' => false,
-        ),
-        'reduction' => array(
+        ],
+        'reduction' => [
             'description' => 'Reduction (absolute or percent: 10/10%)',
             'type' => 'string',
             'sentAs' => 'reduction',
             'required' => false,
-        ),
-    ),
-);
+        ],
+    ],
+];
 
 // special case when invoice item is created directly
 $invoiceItemParameterCreate = $invoiceItemParameter;
 $invoiceItemParameterCreate['properties']['invoice_id']['required'] = true;
 
-$invoiceTagParameterCreate = array(
+$invoiceTagParameterCreate = [
     'description' => 'Invoice tag',
     'location' => 'json',
     'type' => 'object',
     'sentAs' => 'invoice-tag',
     'required' => true,
-    'properties' => array(
-        'invoice_id' => array(
+    'properties' => [
+        'invoice_id' => [
             'description' => 'ID of an invoice',
             'type' => 'integer',
             'sentAs' => 'invoice_id',
             'required' => true,
-        ),
-        'name' => array(
+        ],
+        'name' => [
             'description' => 'Name of the tag',
             'type' => 'string',
             'sentAs' => 'name',
             'required' => true,
-        )
-    )
-);
+        ]
+    ]
+];
 
-$invoicePaymentParameterCreate = array(
+$invoicePaymentParameterCreate = [
     'description' => 'Invoice Payment',
     'location' => 'json',
     'type' => 'object',
     'sentAs' => 'invoice-payment',
     'required' => true,
-    'properties' => array(
-        'invoice_id' => array(
+    'properties' => [
+        'invoice_id' => [
             'description' => 'ID of the invoice',
             'type' => 'integer',
             'sentAs' => 'invoice_id',
             'required' => true,
-        ),
-        'date' => array(
+        ],
+        'date' => [
             'description' => 'Date of payment. Default: today',
             'type' => 'string',
             'sentAs' => 'date',
             'required' => false,
-        ),
-        'amount'  => array(
+        ],
+        'amount' => [
             'description' => 'Payed amount',
-            'type'        => 'numeric',
-            'sentAs'      => 'amount',
-            'required'    => true
-        ),
-        'comment' => array(
+            'type' => 'numeric',
+            'sentAs' => 'amount',
+            'required' => true
+        ],
+        'comment' => [
             'description' => 'Comment text',
             'type' => 'string',
             'sentAs' => 'comment',
             'required' => false,
-        ),
-        'type' => array(
+        ],
+        'type' => [
             'description' => 'Payment type',
             'type' => 'string',
-            'enum' => array('CREDIT_NOTE', 'BANK_CARD', 'BANK_TRANSFER', 'DEBIT', 'CASH', 'CHECK', 'PAYPAL', 'CREDIT_CARD', 'COUPON', 'MISC'),
+            'enum' => ['CREDIT_NOTE', 'BANK_CARD', 'BANK_TRANSFER', 'DEBIT', 'CASH', 'CHECK', 'PAYPAL', 'CREDIT_CARD', 'COUPON', 'MISC'],
             'sentAs' => 'type',
             'required' => false,
-        ),
-        'mark_invoice_as_paid' => array(
+        ],
+        'mark_invoice_as_paid' => [
             'description' => 'Mark associated invoice as paid. Default: 0',
             'type' => 'integer',
-            'enum' => array(0, 1),
+            'enum' => [0, 1],
             'sentAs' => 'mark_invoice_as_paid',
             'required' => false,
-        )
-    )
-);
+        ]
+    ]
+];
 
-$invoiceParameter = array(
+$invoiceParameter = [
     'description' => 'Invoice',
     'location' => 'json',
     'type' => 'object',
     'sentAs' => 'invoice',
     'required' => true,
-    'properties' => array(
-        'client_id'  => array(
+    'properties' => [
+        'client_id' => [
             'description' => 'ID of the client',
-            'type'        => 'integer',
-            'sentAs'      => 'client_id',
-            'required'    => true
-        ),
-        'contact_id'  => array(
+            'type' => 'integer',
+            'sentAs' => 'client_id',
+            'required' => true
+        ],
+        'contact_id' => [
             'description' => 'ID of the contact',
-            'type'        => 'integer',
-            'sentAs'      => 'contact_id',
-            'required'    => false
-        ),
-        'address' => array(
+            'type' => 'integer',
+            'sentAs' => 'contact_id',
+            'required' => false
+        ],
+        'address' => [
             'description' => 'Address. Default: the client’s address',
             'type' => 'string',
             'sentAs' => 'address',
             'required' => false,
-        ),
-        'number_pre' => array(
+        ],
+        'number_pre' => [
             'description' => 'Invoice number prefix. Default: Value from settings',
             'type' => 'string',
             'sentAs' => 'number_pre',
             'required' => false,
-        ),
-        'number' => array(
+        ],
+        'number' => [
             'description' => 'Sequential number. Default: Next free number',
             'type' => 'integer',
             'sentAs' => 'number',
             'required' => false,
-        ),
-        'number_length' => array(
+        ],
+        'number_length' => [
             'description' => 'Minimum length of the invoice number (to be filled with leading zeros). Default: Value from settings',
             'type' => 'integer',
             'sentAs' => 'number_length',
             'required' => false,
-        ),
-        'date' => array(
+        ],
+        'date' => [
             'description' => 'Invoice date. Default: today',
             'type' => 'string',
             'sentAs' => 'date',
             'required' => false,
-        ),
-        'supply_date' => array(
+        ],
+        'supply_date' => [
             'description' => 'supply/delivery date',
             'type' => 'string',
             'sentAs' => 'supply_date',
             'required' => false,
-        ),
-        'supply_date_type' => array(
+        ],
+        'supply_date_type' => [
             'description' => 'Type of supply/delivery date',
             'type' => 'string',
-            'enum' => array('SUPPLY_DATE', 'DELIVERY_DATE', 'SUPPLY_TEXT', 'DELIVERY_TEXT'),
+            'enum' => ['SUPPLY_DATE', 'DELIVERY_DATE', 'SUPPLY_TEXT', 'DELIVERY_TEXT'],
             'sentAs' => 'supply_date_type',
             'required' => false,
-        ),
-        'due_date' => array(
+        ],
+        'due_date' => [
             'description' => 'Due date. Default: date + due days taken from the settings',
             'type' => 'string',
             'sentAs' => 'due_date',
             'required' => false,
-        ),
-        'discount_rate' => array(
+        ],
+        'discount_rate' => [
             'description' => 'Cash discount. Default: Value from the settings',
             'type' => 'number',
             'sentAs' => 'discount_rate',
             'required' => false,
-        ),
-        'discount_date' => array(
+        ],
+        'discount_date' => [
             'description' => 'Cash discount date. Default: date + cash discount days taken from the settings',
             'type' => 'string',
             'sentAs' => 'discount_date',
             'required' => false,
-        ),
-        'title' => array(
+        ],
+        'title' => [
             'description' => 'Title of the document',
             'type' => 'string',
             'sentAs' => 'title',
             'required' => false,
-        ),
-        'label' => array(
+        ],
+        'label' => [
             'description' => 'Label text to describe the project',
             'type' => 'string',
             'sentAs' => 'label',
             'required' => false,
-        ),
-        'intro' => array(
+        ],
+        'intro' => [
             'description' => 'Introductory text. Default: Value taken from the settings',
             'type' => 'string',
             'sentAs' => 'intro',
             'required' => false,
-        ),
-        'note' => array(
+        ],
+        'note' => [
             'description' => 'Explanatory notes. Default: Value taken from the settings',
             'type' => 'string',
             'sentAs' => 'note',
             'required' => false,
-        ),
-        'reduction' => array(
+        ],
+        'reduction' => [
             'description' => 'Reduction (absolute or percent: 10/10%)',
             'type' => 'string',
             'sentAs' => 'reduction',
             'required' => false,
-        ),
-        'currency_code' => array(
+        ],
+        'currency_code' => [
             'description' => 'ISO currency code. Default: default currency',
             'type' => 'string',
             'sentAs' => 'currency_code',
             'required' => false,
-        ),
-        'net_gross' => array(
+        ],
+        'net_gross' => [
             'description' => 'Price basis (gross or net prices). Default: Value taken from the settings',
             'type' => 'string',
-            'enum' => array('NET', 'GROSS'),
+            'enum' => ['NET', 'GROSS'],
             'sentAs' => 'net_gross',
             'required' => false,
-        ),
-        'quote' => array(
+        ],
+        'quote' => [
             'description' => 'Currency quote (for conversion into standard currency). Default: 1.0000',
             'type' => 'number',
             'sentAs' => 'quote',
             'required' => false,
-        ),
-        'payment_types' => array(
+        ],
+        'payment_types' => [
             'description' => 'Comma separated list of all accepted payment types. Default: Value taken from the settings',
             'type' => 'string',
             'sentAs' => 'payment_types',
             'required' => false,
-        ),
-        'invoice_id' => array(
+        ],
+        'invoice_id' => [
             'description' => 'The ID of the corrected invoice, if it is an invoice correction.',
             'type' => 'integer',
             'sentAs' => 'invoice_id',
             'required' => false,
-        ),
-        'offer_id' => array(
+        ],
+        'offer_id' => [
             'description' => 'The ID of the estimate, if the invoice was created from an estimate.',
             'type' => 'integer',
             'sentAs' => 'offer_id',
             'required' => false,
-        ),
-        'confirmation_id' => array(
+        ],
+        'confirmation_id' => [
             'description' => 'The ID of the confirmation, if the invoice was created from a confirmation.',
             'type' => 'integer',
             'sentAs' => 'confirmation_id',
             'required' => false,
-        ),
-        'recurring_id' => array(
+        ],
+        'recurring_id' => [
             'description' => 'The ID of the recurring, if the invoice was created from a recurring.',
             'type' => 'integer',
             'sentAs' => 'recurring_id',
             'required' => false,
-        ),
-        'invoice-items' => array(
+        ],
+        'invoice-items' => [
             'description' => 'Invoice items',
             'type' => 'object',
             'sentAs' => 'invoice-items',
             'required' => false,
-            'properties' => array(
-                'invoice-item' => array(
+            'properties' => [
+                'invoice-item' => [
                     'description' => 'Invoice items',
                     'type' => 'array',
                     'sentAs' => 'invoice-item',
                     'required' => false,
                     'items' => $invoiceItemParameter,
-                ),
-            ),
-        )
-    )
-);
+                ],
+            ],
+        ]
+    ]
+];
 
-$creditNoteItemParameter = array(
+$creditNoteItemParameter = [
     'description' => 'Credit note item',
     'location' => 'json',
     'type' => 'object',
-    'properties' => array(
-        'credit_note_id' => array(
+    'properties' => [
+        'credit_note_id' => [
             'description' => 'ID of the credit note',
             'type' => 'integer',
             'sentAs' => 'credit_note_id',
             'required' => false,
-        ),
-        'article_id' => array(
+        ],
+        'article_id' => [
             'description' => 'ID of the article, sets additionally the values from the article on creation',
             'type' => 'integer',
             'sentAs' => 'article_id',
             'required' => false,
-        ),
-        'unit' => array(
+        ],
+        'unit' => [
             'description' => 'Unit',
             'type' => 'string',
             'sentAs' => 'unit',
             'required' => false,
-        ),
-        'quantity' => array(
+        ],
+        'quantity' => [
             'description' => 'Quantity',
             'type' => 'number',
             'sentAs' => 'quantity',
             'required' => false,
-        ),
-        'unit_price' => array(
+        ],
+        'unit_price' => [
             'description' => 'Price per unit. Default: 0.0000',
             'type' => 'number',
             'sentAs' => 'unit_price',
             'required' => false,
-        ),
-        'tax_name' => array(
+        ],
+        'tax_name' => [
             'description' => 'Name of the tax. Default: Value taken from the settings',
             'type' => 'string',
             'sentAs' => 'tax_name',
             'required' => false,
-        ),
-        'tax_rate' => array(
+        ],
+        'tax_rate' => [
             'description' => 'Rate of taxation. Default: Value taken from the settings',
             'type' => 'number',
             'sentAs' => 'tax_rate',
             'required' => false,
-        ),
-        'title' => array(
+        ],
+        'title' => [
             'description' => 'Title',
             'type' => 'string',
             'sentAs' => 'title',
             'required' => false,
-        ),
-        'description' => array(
+        ],
+        'description' => [
             'description' => 'Description',
             'type' => 'string',
             'sentAs' => 'description',
             'required' => false,
-        ),
-        'reduction' => array(
+        ],
+        'reduction' => [
             'description' => 'Reduction (absolute or percent: 10/10%)',
             'type' => 'string',
             'sentAs' => 'reduction',
             'required' => false,
-        ),
-    ),
-);
+        ],
+    ],
+];
 
 // special case when credit note item is created directly
 $creditNoteItemParameterCreate = $creditNoteItemParameter;
 $creditNoteItemParameterCreate['properties']['credit_note_id']['required'] = true;
 
-$creditNoteParameter = array(
+$creditNoteParameter = [
     'description' => 'Credit note',
     'location' => 'json',
     'type' => 'object',
     'sentAs' => 'credit-note',
     'required' => true,
-    'properties' => array(
-        'client_id'  => array(
+    'properties' => [
+        'client_id' => [
             'description' => 'ID of the client',
-            'type'        => 'integer',
-            'sentAs'      => 'client_id',
-            'required'    => false
-        ),
-        'contact_id'  => array(
+            'type' => 'integer',
+            'sentAs' => 'client_id',
+            'required' => false
+        ],
+        'contact_id' => [
             'description' => 'ID of the contact',
-            'type'        => 'integer',
-            'sentAs'      => 'contact_id',
-            'required'    => false
-        ),
-        'address' => array(
+            'type' => 'integer',
+            'sentAs' => 'contact_id',
+            'required' => false
+        ],
+        'address' => [
             'description' => 'Address. Default: the client’s address',
             'type' => 'string',
             'sentAs' => 'address',
             'required' => false,
-        ),
-        'number_pre' => array(
+        ],
+        'number_pre' => [
             'description' => 'Credit note number prefix. Default: Value from settings',
             'type' => 'string',
             'sentAs' => 'number_pre',
             'required' => false,
-        ),
-        'number' => array(
+        ],
+        'number' => [
             'description' => 'Sequential number. Default: Next free number',
             'type' => 'integer',
             'sentAs' => 'number',
             'required' => false,
-        ),
-        'number_length' => array(
+        ],
+        'number_length' => [
             'description' => 'Minimum length of the credit note number (to be filled with leading zeros). Default: Value from settings',
             'type' => 'integer',
             'sentAs' => 'number_length',
             'required' => false,
-        ),
-        'date' => array(
+        ],
+        'date' => [
             'description' => 'Credit note date. Default: today',
             'type' => 'string',
             'sentAs' => 'date',
             'required' => false,
-        ),
-        'title' => array(
+        ],
+        'title' => [
             'description' => 'Title of the document',
             'type' => 'string',
             'sentAs' => 'title',
             'required' => false,
-        ),
-        'label' => array(
+        ],
+        'label' => [
             'description' => 'Label text to describe the project',
             'type' => 'string',
             'sentAs' => 'label',
             'required' => false,
-        ),
-        'intro' => array(
+        ],
+        'intro' => [
             'description' => 'Introductory text. Default: Value taken from the settings',
             'type' => 'string',
             'sentAs' => 'intro',
             'required' => false,
-        ),
-        'note' => array(
+        ],
+        'note' => [
             'description' => 'Explanatory notes. Default: Value taken from the settings',
             'type' => 'string',
             'sentAs' => 'note',
             'required' => false,
-        ),
-        'reduction' => array(
+        ],
+        'reduction' => [
             'description' => 'Reduction (absolute or percent: 10/10%)',
             'type' => 'string',
             'sentAs' => 'reduction',
             'required' => false,
-        ),
-        'currency_code' => array(
+        ],
+        'currency_code' => [
             'description' => 'ISO currency code. Default: default currency',
             'type' => 'string',
             'sentAs' => 'currency_code',
             'required' => false,
-        ),
-        'net_gross' => array(
+        ],
+        'net_gross' => [
             'description' => 'Price basis (gross or net prices). Default: Value taken from the settings',
             'type' => 'string',
-            'enum' => array('NET', 'GROSS'),
+            'enum' => ['NET', 'GROSS'],
             'sentAs' => 'net_gross',
             'required' => false,
-        ),
-        'quote' => array(
+        ],
+        'quote' => [
             'description' => 'Currency quote (for conversion into standard currency). Default: 1.0000',
             'type' => 'number',
             'sentAs' => 'quote',
             'required' => false,
-        ),
-        'invoice_id' => array(
+        ],
+        'invoice_id' => [
             'description' => 'The ID of the invoice, if the credit note was created from an invoice.',
             'type' => 'integer',
             'sentAs' => 'invoice_id',
             'required' => false,
-        ),
-        'credit-note-items' => array(
+        ],
+        'credit-note-items' => [
             'description' => 'Credit note items',
             'type' => 'object',
             'sentAs' => 'credit-note-items',
             'required' => false,
-            'properties' => array(
-                'credit-note-item' => array(
+            'properties' => [
+                'credit-note-item' => [
                     'description' => 'Credit note item',
                     'type' => 'array',
                     'sentAs' => 'credit-note-item',
                     'required' => false,
                     'items' => $creditNoteItemParameter,
-                ),
-            ),
-        )
-    )
-);
+                ],
+            ],
+        ]
+    ]
+];
 
 $creditNoteParameterCreate = $creditNoteParameter;
 $creditNoteParameterCreate['properties']['client_id']['required'] = true;
 
-$creditNotePaymentParameterCreate = array(
+$creditNotePaymentParameterCreate = [
     'description' => 'Credit Note Payment',
     'location' => 'json',
     'type' => 'object',
     'sentAs' => 'credit-note-payment',
     'required' => true,
-    'properties' => array(
-        'credit_note_id' => array(
+    'properties' => [
+        'credit_note_id' => [
             'description' => 'ID of the credit note',
             'type' => 'integer',
             'sentAs' => 'credit_note_id',
             'required' => true,
-        ),
-        'date' => array(
+        ],
+        'date' => [
             'description' => 'Date of payment. Default: today',
             'type' => 'string',
             'sentAs' => 'date',
             'required' => false,
-        ),
-        'amount'  => array(
+        ],
+        'amount' => [
             'description' => 'Payed amount',
-            'type'        => 'numeric',
-            'sentAs'      => 'amount',
-            'required'    => true
-        ),
-        'comment' => array(
+            'type' => 'numeric',
+            'sentAs' => 'amount',
+            'required' => true
+        ],
+        'comment' => [
             'description' => 'Comment text',
             'type' => 'string',
             'sentAs' => 'comment',
             'required' => false,
-        ),
-        'type' => array(
+        ],
+        'type' => [
             'description' => 'Payment type',
             'type' => 'string',
-            'enum' => array('CREDIT_NOTE', 'BANK_TRANSFER', 'DEBIT', 'CASH', 'PAYPAL', 'CREDIT_CARD', 'MISC'),
+            'enum' => ['CREDIT_NOTE', 'BANK_TRANSFER', 'DEBIT', 'CASH', 'PAYPAL', 'CREDIT_CARD', 'MISC'],
             'sentAs' => 'type',
             'required' => false,
-        ),
-        'mark_credit_note_as_paid' => array(
+        ],
+        'mark_credit_note_as_paid' => [
             'description' => 'Mark associated credit note as paid. Default: 0',
             'type' => 'integer',
-            'enum' => array(0, 1),
+            'enum' => [0, 1],
             'sentAs' => 'mark_credit_note_as_paid',
             'required' => false,
-        )
-    )
-);
+        ]
+    ]
+];
 
-$templateParameter = array(
+$templateParameter = [
     'description' => 'Template',
     'location' => 'json',
     'type' => 'object',
     'sentAs' => 'template',
     'required' => true,
-    'properties' => array(
-        'name'  => array(
+    'properties' => [
+        'name' => [
             'description' => 'Name of the template',
-            'type'        => 'string',
-            'sentAs'      => 'name',
-            'required'    => false
-        ),
-        'type'  => array(
+            'type' => 'string',
+            'sentAs' => 'name',
+            'required' => false
+        ],
+        'type' => [
             'description' => 'Template type',
-            'type'        => 'string',
-            'enum'        => array('INVOICE', 'OFFER', 'CONFIRMATION', 'REMINDER', 'DELIVERY_NOTE', 'CREDIT_NOTE'),
-            'sentAs'      => 'type',
-            'required'    => false
-        ),
-        'format'  => array(
+            'type' => 'string',
+            'enum' => ['INVOICE', 'OFFER', 'CONFIRMATION', 'REMINDER', 'DELIVERY_NOTE', 'CREDIT_NOTE'],
+            'sentAs' => 'type',
+            'required' => false
+        ],
+        'format' => [
             'description' => 'Format',
-            'type'        => 'string',
-            'enum'        => array('doc', 'docx', 'rtf'),
-            'sentAs'      => 'format',
-            'required'    => false
-        ),
-        'base64file'  => array(
+            'type' => 'string',
+            'enum' => ['doc', 'docx', 'rtf'],
+            'sentAs' => 'format',
+            'required' => false
+        ],
+        'base64file' => [
             'description' => 'base64 coded template file',
-            'type'        => 'string',
-            'sentAs'      => 'base64file',
-            'required'    => false
-        ),
-    )
-);
+            'type' => 'string',
+            'sentAs' => 'base64file',
+            'required' => false
+        ],
+    ]
+];
 
 $templateParameterCreate = $templateParameter;
 foreach ($templateParameterCreate['properties'] as $key => $property) {
@@ -1020,41 +1020,40 @@ foreach ($templateParameterCreate['properties'] as $key => $property) {
 }
 
 
-
-$assetPropertyParameter = array(
+$assetPropertyParameter = [
     'description' => '',
     'location' => 'json',
     'type' => 'object',
     'sentAs' => '',
     'required' => true,
-    'properties' => array(
-        'name' => array(
+    'properties' => [
+        'name' => [
             'description' => 'Name',
             'type' => 'string',
             'sentAs' => 'name',
             'required' => false,
-        ),
-        'type' => array(
+        ],
+        'type' => [
             'description' => 'Type',
             'type' => 'string',
-            'enum' => array('TEXTFIELD', 'TEXTAREA', 'CHECKBOX'),
+            'enum' => ['TEXTFIELD', 'TEXTAREA', 'CHECKBOX'],
             'sentAs' => 'type',
             'required' => false,
-        ),
-        'default_value' => array(
+        ],
+        'default_value' => [
             'description' => 'Default value',
             'type' => 'string',
             'sentAs' => 'default_value',
             'required' => false,
-        ),
-        'is_nvl' => array(
+        ],
+        'is_nvl' => [
             'description' => 'Should the default value be used if there is no other value?',
             'type' => 'integer',
             'sentAs' => 'is_nvl',
             'required' => false,
-        )
-    )
-);
+        ]
+    ]
+];
 
 $articlePropertyParameter = $assetPropertyParameter;
 $articlePropertyParameter['description'] = 'Article property';
@@ -1081,163 +1080,162 @@ $userPropertyParameterCreate['properties']['name']['required'] = true;
 $userPropertyParameterCreate['properties']['type']['required'] = true;
 
 
-
-$taxParameter = array(
+$taxParameter = [
     'description' => 'Tax',
     'location' => 'json',
     'type' => 'object',
     'sentAs' => 'tax',
     'required' => true,
-    'properties' => array(
-        'name'  => array(
+    'properties' => [
+        'name' => [
             'description' => 'Name of the tax',
-            'type'        => 'string',
-            'sentAs'      => 'name',
-            'required'    => false
-        ),
-        'rate'  => array(
+            'type' => 'string',
+            'sentAs' => 'name',
+            'required' => false
+        ],
+        'rate' => [
             'description' => 'Tax rate in percent',
-            'type'        => 'numeric',
-            'sentAs'      => 'rate',
-            'required'    => false
-        ),
-        'is_default'  => array(
+            'type' => 'numeric',
+            'sentAs' => 'rate',
+            'required' => false
+        ],
+        'is_default' => [
             'description' => 'Specifies whether this is the standard tax rate',
-            'type'        => 'integer',
-            'enum'        => array(0, 1),
-            'sentAs'      => 'is_default',
-            'required'    => false
-        )
-    )
-);
+            'type' => 'integer',
+            'enum' => [0, 1],
+            'sentAs' => 'is_default',
+            'required' => false
+        ]
+    ]
+];
 
 $taxParameterCreate = $taxParameter;
 foreach ($taxParameterCreate['properties'] as $key => $property) {
     $taxParameterCreate['properties'][$key]['required'] = true;
 }
 
-$countryTaxParameter = array(
+$countryTaxParameter = [
     'description' => 'Tax free country',
     'location' => 'json',
     'type' => 'object',
     'sentAs' => 'country-tax',
     'required' => true,
-    'properties' => array(
-        'country_code'  => array(
+    'properties' => [
+        'country_code' => [
             'description' => 'Country code as ISO 3166 Alpha-2',
-            'type'        => 'string',
-            'sentAs'      => 'country_code',
-            'required'    => true
-        )
-    )
-);
+            'type' => 'string',
+            'sentAs' => 'country_code',
+            'required' => true
+        ]
+    ]
+];
 
-$reminderTextParameter = array(
+$reminderTextParameter = [
     'description' => 'Reminder text',
     'location' => 'json',
     'type' => 'object',
     'sentAs' => 'reminder-text',
     'required' => true,
-    'properties' => array(
-        'sorting'  => array(
+    'properties' => [
+        'sorting' => [
             'description' => 'Sorting of this reminder text. Default: at the end of the list',
-            'type'        => 'integer',
-            'sentAs'      => 'sorting',
-            'required'    => false
-        ),
-        'name'  => array(
+            'type' => 'integer',
+            'sentAs' => 'sorting',
+            'required' => false
+        ],
+        'name' => [
             'description' => 'Name (for internal use)',
-            'type'        => 'string',
-            'sentAs'      => 'name',
-            'required'    => false
-        ),
-        'subject'  => array(
+            'type' => 'string',
+            'sentAs' => 'name',
+            'required' => false
+        ],
+        'subject' => [
             'description' => 'Subject',
-            'type'        => 'string',
-            'sentAs'      => 'subject',
-            'required'    => false
-        ),
-        'header'  => array(
+            'type' => 'string',
+            'sentAs' => 'subject',
+            'required' => false
+        ],
+        'header' => [
             'description' => 'Introductory text',
-            'type'        => 'string',
-            'sentAs'      => 'header',
-            'required'    => false
-        ),
-        'footer'  => array(
+            'type' => 'string',
+            'sentAs' => 'header',
+            'required' => false
+        ],
+        'footer' => [
             'description' => 'Explanatory notes',
-            'type'        => 'string',
-            'sentAs'      => 'footer',
-            'required'    => false
-        ),
-        'charge_name'  => array(
+            'type' => 'string',
+            'sentAs' => 'footer',
+            'required' => false
+        ],
+        'charge_name' => [
             'description' => 'Name of charge (if present)',
-            'type'        => 'string',
-            'sentAs'      => 'charge_name',
-            'required'    => false
-        ),
-        'charge_description'  => array(
+            'type' => 'string',
+            'sentAs' => 'charge_name',
+            'required' => false
+        ],
+        'charge_description' => [
             'description' => 'Description of charge (if present)',
-            'type'        => 'string',
-            'sentAs'      => 'charge_description',
-            'required'    => false
-        ),
-        'charge_amount'  => array(
+            'type' => 'string',
+            'sentAs' => 'charge_description',
+            'required' => false
+        ],
+        'charge_amount' => [
             'description' => 'Amount of charge (if present)',
-            'type'        => 'numeric',
-            'sentAs'      => 'charge_amount',
-            'required'    => false
-        )
-    )
-);
+            'type' => 'numeric',
+            'sentAs' => 'charge_amount',
+            'required' => false
+        ]
+    ]
+];
 
-$emailTemplateParameter = array(
+$emailTemplateParameter = [
     'description' => 'Email template',
     'location' => 'json',
     'type' => 'object',
     'sentAs' => 'email-template',
     'required' => true,
-    'properties' => array(
-        'name'  => array(
+    'properties' => [
+        'name' => [
             'description' => 'Name (for internal use)',
-            'type'        => 'string',
-            'sentAs'      => 'name',
-            'required'    => false
-        ),
-        'type'  => array(
+            'type' => 'string',
+            'sentAs' => 'name',
+            'required' => false
+        ],
+        'type' => [
             'description' => 'Document type',
-            'type'        => 'string',
-            'enum' => array('INVOICES', 'OFFERS', 'CONFIRMATIONS', 'CREDIT_NOTES', 'DELIVERY_NOTES', 'REMINDERS'),
-            'sentAs'      => 'type',
-            'required'    => false
-        ),
-        'subject'  => array(
+            'type' => 'string',
+            'enum' => ['INVOICES', 'OFFERS', 'CONFIRMATIONS', 'CREDIT_NOTES', 'DELIVERY_NOTES', 'REMINDERS'],
+            'sentAs' => 'type',
+            'required' => false
+        ],
+        'subject' => [
             'description' => 'Subject',
-            'type'        => 'string',
-            'sentAs'      => 'subject',
-            'required'    => false
-        ),
-        'text'  => array(
+            'type' => 'string',
+            'sentAs' => 'subject',
+            'required' => false
+        ],
+        'text' => [
             'description' => 'Message text',
-            'type'        => 'string',
-            'sentAs'      => 'text',
-            'required'    => false
-        ),
-        'bcc'  => array(
+            'type' => 'string',
+            'sentAs' => 'text',
+            'required' => false
+        ],
+        'bcc' => [
             'description' => 'Specifies whether the sender should get a copy as BCC',
-            'type'        => 'integer',
-            'enum' => array(0, 1),
-            'sentAs'      => 'bcc',
-            'required'    => false
-        ),
-        'is_default'  => array(
+            'type' => 'integer',
+            'enum' => [0, 1],
+            'sentAs' => 'bcc',
+            'required' => false
+        ],
+        'is_default' => [
             'description' => 'Specifies whether this is the standard template ',
-            'type'        => 'integer',
-            'enum' => array(0, 1),
-            'sentAs'      => 'is_default',
-            'required'    => false
-        )
-    )
-);
+            'type' => 'integer',
+            'enum' => [0, 1],
+            'sentAs' => 'is_default',
+            'required' => false
+        ]
+    ]
+];
 
 $emailTemplateParameterCreate = $emailTemplateParameter;
 $emailTemplateParameterCreate['properties']['name']['required'] = true;
@@ -1245,308 +1243,314 @@ $emailTemplateParameterCreate['properties']['type']['required'] = true;
 $emailTemplateParameterCreate['properties']['bcc']['required'] = true;
 $emailTemplateParameterCreate['properties']['is_default']['required'] = true;
 
-$incomingTagParameterCreate = array(
+$incomingTagParameterCreate = [
     'description' => 'Incoming tag',
     'location' => 'json',
     'type' => 'object',
     'sentAs' => 'incoming-tag',
     'required' => true,
-    'properties' => array(
-        'incoming_id' => array(
+    'properties' => [
+        'incoming_id' => [
             'description' => 'ID of an incoming',
             'type' => 'integer',
             'sentAs' => 'incoming_id',
             'required' => true,
-        ),
-        'name' => array(
+        ],
+        'name' => [
             'description' => 'Name of the tag',
             'type' => 'string',
             'sentAs' => 'name',
             'required' => true,
-        )
-    )
-);
+        ]
+    ]
+];
 
-$userPropertyValueParameter = array(
+$userPropertyValueParameter = [
     'description' => 'User property value',
     'location' => 'json',
     'type' => 'object',
     'sentAs' => 'user-property-value',
     'required' => true,
-    'properties' => array(
-        'user_id' => array(
+    'properties' => [
+        'user_id' => [
             'description' => 'ID of the user',
             'type' => 'integer',
             'sentAs' => 'user_id',
             'required' => true,
-        ),
-        'user_property_id' => array(
+        ],
+        'user_property_id' => [
             'description' => 'ID of the property',
             'type' => 'integer',
             'sentAs' => 'user_property_id',
             'required' => true,
-        ),
-        'value' => array(
+        ],
+        'value' => [
             'description' => 'Property value',
             'type' => 'string',
             'sentAs' => 'value',
             'required' => true,
-        )
-    )
-);
+        ]
+    ]
+];
 
-$incomingPaymentParameterCreate = array(
-    'description' => 'Incomings Payment',
+$incomingPaymentParameterCreate = [
+    'description' => 'Incoming Payment',
     'location' => 'json',
     'type' => 'object',
     'sentAs' => 'incoming-payment',
     'required' => true,
-    'properties' => array(
-        'incoming_id' => array(
+    'properties' => [
+        'incoming_id' => [
             'description' => 'ID of the incoming',
             'type' => 'integer',
             'sentAs' => 'incoming_id',
             'required' => true,
-        ),
-        'date' => array(
+        ],
+        'date' => [
             'description' => 'Date of payment. Default: today',
             'type' => 'string',
             'sentAs' => 'date',
             'required' => false,
-        ),
-        'amount'  => array(
+        ],
+        'amount' => [
             'description' => 'Payed amount',
-            'type'        => 'numeric',
-            'sentAs'      => 'amount',
-            'required'    => true
-        ),
-        'comment' => array(
+            'type' => 'numeric',
+            'sentAs' => 'amount',
+            'required' => true
+        ],
+        'comment' => [
             'description' => 'Comment text',
             'type' => 'string',
             'sentAs' => 'comment',
             'required' => false,
-        ),
-        'type' => array(
+        ],
+        'type' => [
             'description' => 'Payment type',
             'type' => 'string',
-            'enum' => array('CREDIT_NOTE', 'BANK_CARD', 'BANK_TRANSFER', 'DEBIT', 'CASH', 'CHECK', 'PAYPAL', 'CREDIT_CARD', 'COUPON', 'MISC'),
+            'enum' => ['CREDIT_NOTE', 'BANK_CARD', 'BANK_TRANSFER', 'DEBIT', 'CASH', 'CHECK', 'PAYPAL', 'CREDIT_CARD', 'COUPON', 'MISC'],
             'sentAs' => 'type',
             'required' => false,
-        ),
-        'mark_invoice_as_paid' => array(
+        ],
+        'mark_invoice_as_paid' => [
             'description' => 'Mark associated invoice as paid. Default: 0',
             'type' => 'integer',
-            'enum' => array(0, 1),
+            'enum' => [0, 1],
             'sentAs' => 'mark_invoice_as_paid',
             'required' => false,
-        )
-    )
-);
+        ]
+    ]
+];
 
-$incomingInboxDocumentParameterCreate = array(
+$incomingInboxDocumentParameterCreate = [
     'description' => 'Inbox Document',
     'location' => 'json',
     'type' => 'object',
     'sentAs' => 'inbox-document',
     'required' => true,
-    'properties' => array(
-        'filename' => array(
+    'properties' => [
+        'filename' => [
             'description' => 'filename',
             'type' => 'string',
             'sentAs' => 'filename',
             'required' => true,
-        ),
-        'mimetype' => array(
+        ],
+        'mimetype' => [
             'description' => 'Mime type of the file',
             'type' => 'string',
             'sentAs' => 'mimetype',
             'required' => true,
-        ),
-        'base64file'  => array(
+        ],
+        'base64file' => [
             'description' => 'base64 coded template file',
-            'type'        => 'string',
-            'sentAs'      => 'base64file',
-            'required'    => false
-        ),
-        'metadata' => array(
+            'type' => 'string',
+            'sentAs' => 'base64file',
+            'required' => false
+        ],
+        'metadata' => [
             'description' => 'Metadata',
             'type' => 'array',
             'sentAs' => 'metadata',
             'required' => false,
-        )
-    )
-);
+        ]
+    ]
+];
 
-return array(
-    'name'        => 'Billomat',
-    'apiVersion'  => '1.0',
+return [
+    'name' => 'Billomat',
+    'apiVersion' => '1.0',
     'description' => 'Billomat is an online service for quoting, billing and more.',
-    'operations'  => array(
+    'operations' => [
         /**
          * --------------------------------------------------------------------------------
          * CLIENT RELATED OPERATIONS
          * --------------------------------------------------------------------------------
          */
 
-        'GetClients' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/clients',
-            'summary'          => 'List all clients',
+        'GetClients' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/clients',
+            'summary' => 'List all clients',
             'documentationUrl' => 'http://www.billomat.com/en/api/clients',
-            'parameters'       => array(
-                'per_page'  => array(
+            'parameters' => [
+                'per_page' => [
                     'description' => 'Rows per page',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'per_page',
-                    'required'    => false
-                ),
-                'page'  => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'per_page',
+                    'required' => false
+                ],
+                'page' => [
                     'description' => 'Page',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'page',
-                    'required'    => false
-                ),
-                'order_by'  => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'page',
+                    'required' => false
+                ],
+                'order_by' => [
                     'description' => 'Order by',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'order_by',
-                    'required'    => false
-                ),
-                'name'  => array(
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'order_by',
+                    'required' => false
+                ],
+                'name' => [
                     'description' => 'Company name',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'name',
-                    'required'    => false
-                ),
-                'client_number'  => array(
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'name',
+                    'required' => false
+                ],
+                'client_number' => [
                     'description' => 'Client number',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'client_number',
-                    'required'    => false
-                ),
-                'email'  => array(
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'client_number',
+                    'required' => false
+                ],
+                'email' => [
                     'description' => 'E-mail address',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'email',
-                    'required'    => false
-                ),
-                'first_name'  => array(
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'email',
+                    'required' => false
+                ],
+                'first_name' => [
                     'description' => 'First name of the contact person',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'first_name',
-                    'required'    => false
-                ),
-                'last_name'  => array(
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'first_name',
+                    'required' => false
+                ],
+                'last_name' => [
                     'description' => 'Last name of the contact person',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'last_name',
-                    'required'    => false
-                ),
-                'country_code'  => array(
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'last_name',
+                    'required' => false
+                ],
+                'country_code' => [
                     'description' => 'Country code as ISO 3166 Alpha-2',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'country_code',
-                    'required'    => false
-                ),
-                'note'  => array(
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'country_code',
+                    'required' => false
+                ],
+                'note' => [
                     'description' => 'Note',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'note',
-                    'required'    => false
-                ),
-                'invoice_id'  => array(
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'note',
+                    'required' => false
+                ],
+                'invoice_id' => [
                     'description' => 'ID of an invoice of this client, multiple values separated with commas',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'invoice_id',
-                    'required'    => false
-                ),
-                'tags'  => array(
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'invoice_id',
+                    'required' => false
+                ],
+                'tags' => [
                     'description' => 'Comma separated list of tags',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'tags',
-                    'required'    => false
-                )
-            )
-        ),
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'tags',
+                    'required' => false
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'GetClient' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/clients/{id}',
-            'summary'          => 'Get a specific client',
+        'GetClient' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/clients/{id}',
+            'summary' => 'Get a specific client',
             'documentationUrl' => 'http://www.billomat.com/en/api/clients',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Client id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                )
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'GetClientMyself' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/clients/myself',
-            'summary'          => 'Your own account info',
+        'GetClientMyself' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/clients/myself',
+            'summary' => 'Your own account info',
             'documentationUrl' => 'http://www.billomat.com/en/api/clients',
-            'parameters'       => array()
-        ),
+            'parameters' => [],
+            'responseModel' => 'Generic',
+        ],
 
-        'CreateClient' => array(
-            'httpMethod'       => 'POST',
-            'uri'              => '/api/clients',
-            'summary'          => 'Create a client',
+        'CreateClient' => [
+            'httpMethod' => 'POST',
+            'uri' => '/api/clients',
+            'summary' => 'Create a client',
             'documentationUrl' => 'http://www.billomat.com/en/api/clients',
-            'parameters'       => array(
-                'client'  => $clientParameter
-            )
-        ),
+            'parameters' => [
+                'client' => $clientParameter
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'UpdateClient' => array(
-            'httpMethod'       => 'PUT',
-            'uri'              => '/api/clients/{id}',
-            'summary'          => 'Update a client',
+        'UpdateClient' => [
+            'httpMethod' => 'PUT',
+            'uri' => '/api/clients/{id}',
+            'summary' => 'Update a client',
             'documentationUrl' => 'http://www.billomat.com/en/api/clients',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Client id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                ),
-                'client'  => $clientParameter
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ],
+                'client' => $clientParameter
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'DeleteClient' => array(
-            'httpMethod'       => 'DELETE',
-            'uri'              => '/api/clients/{id}',
-            'summary'          => 'Delete a client',
+        'DeleteClient' => [
+            'httpMethod' => 'DELETE',
+            'uri' => '/api/clients/{id}',
+            'summary' => 'Delete a client',
             'documentationUrl' => 'http://www.billomat.com/en/api/clients',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Client id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                )
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
         /**
          * --------------------------------------------------------------------------------
@@ -1554,75 +1558,78 @@ return array(
          * --------------------------------------------------------------------------------
          */
 
-        'GetClientPropertyValues' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/client-property-values',
-            'summary'          => 'List all client property values',
+        'GetClientPropertyValues' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/client-property-values',
+            'summary' => 'List all client property values',
             'documentationUrl' => 'http://www.billomat.com/en/api/clients/properties',
-            'parameters'       => array(
-                'per_page'  => array(
+            'parameters' => [
+                'per_page' => [
                     'description' => 'Rows per page',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'per_page',
-                    'required'    => false
-                ),
-                'page'  => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'per_page',
+                    'required' => false
+                ],
+                'page' => [
                     'description' => 'Page',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'page',
-                    'required'    => false
-                ),
-                'order_by'  => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'page',
+                    'required' => false
+                ],
+                'order_by' => [
                     'description' => 'Order by',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'order_by',
-                    'required'    => false
-                ),
-                'client_id'  => array(
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'order_by',
+                    'required' => false
+                ],
+                'client_id' => [
                     'description' => 'ID of a client',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'client_id',
-                    'required'    => false
-                ),
-                'client_property_id'  => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'client_id',
+                    'required' => false
+                ],
+                'client_property_id' => [
                     'description' => 'ID of a property',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'client_property_id',
-                    'required'    => false
-                )
-            )
-        ),
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'client_property_id',
+                    'required' => false
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'GetClientPropertyValue' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/client-property-values/{id}',
-            'summary'          => 'Get a specific property',
+        'GetClientPropertyValue' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/client-property-values/{id}',
+            'summary' => 'Get a specific property',
             'documentationUrl' => 'http://www.billomat.com/en/api/clients/properties',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Client property value id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                )
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'SetClientPropertyValue' => array(
-            'httpMethod'       => 'POST',
-            'uri'              => '/api/client-property-values',
-            'summary'          => 'Set a specific client property',
+        'SetClientPropertyValue' => [
+            'httpMethod' => 'POST',
+            'uri' => '/api/client-property-values',
+            'summary' => 'Set a specific client property',
             'documentationUrl' => 'http://www.billomat.com/en/api/clients/properties',
-            'parameters'       => array(
-                'client-property-value'  => $clientPropertyValueParameter
-            )
-        ),
+            'parameters' => [
+                'client-property-value' => $clientPropertyValueParameter
+            ],
+            'responseModel' => 'Generic',
+        ],
 
         /**
          * --------------------------------------------------------------------------------
@@ -1630,136 +1637,141 @@ return array(
          * --------------------------------------------------------------------------------
          */
 
-        'GetArticles' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/articles',
-            'summary'          => 'List all articles',
+        'GetArticles' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/articles',
+            'summary' => 'List all articles',
             'documentationUrl' => 'http://www.billomat.com/en/api/articles',
-            'parameters'       => array(
-                'per_page'  => array(
+            'parameters' => [
+                'per_page' => [
                     'description' => 'Rows per page',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'per_page',
-                    'required'    => false
-                ),
-                'page'  => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'per_page',
+                    'required' => false
+                ],
+                'page' => [
                     'description' => 'Page',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'page',
-                    'required'    => false
-                ),
-                'order_by'  => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'page',
+                    'required' => false
+                ],
+                'order_by' => [
                     'description' => 'Order by',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'order_by',
-                    'required'    => false
-                ),
-                'article_number'  => array(
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'order_by',
+                    'required' => false
+                ],
+                'article_number' => [
                     'description' => 'Article number',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'article_number',
-                    'required'    => false
-                ),
-                'title'  => array(
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'article_number',
+                    'required' => false
+                ],
+                'title' => [
                     'description' => 'Title',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'title',
-                    'required'    => false
-                ),
-                'description'  => array(
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'title',
+                    'required' => false
+                ],
+                'description' => [
                     'description' => 'Description',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'description',
-                    'required'    => false
-                ),
-                'currency_code'  => array(
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'description',
+                    'required' => false
+                ],
+                'currency_code' => [
                     'description' => 'ISO code of the currency',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'currency_code',
-                    'required'    => false
-                ),
-                'unit_id'  => array(
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'currency_code',
+                    'required' => false
+                ],
+                'unit_id' => [
                     'description' => 'ID of the chosen unit',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'unit_id',
-                    'required'    => false
-                ),
-                'tags'  => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'unit_id',
+                    'required' => false
+                ],
+                'tags' => [
                     'description' => 'Comma separated list of tags',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'tags',
-                    'required'    => false
-                )
-            )
-        ),
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'tags',
+                    'required' => false
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'GetArticle' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/articles/{id}',
-            'summary'          => 'Get a specific article',
+        'GetArticle' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/articles/{id}',
+            'summary' => 'Get a specific article',
             'documentationUrl' => 'http://www.billomat.com/en/api/articles',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Article id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                )
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'CreateArticle' => array(
-            'httpMethod'       => 'POST',
-            'uri'              => '/api/articles',
-            'summary'          => 'Create an article',
+        'CreateArticle' => [
+            'httpMethod' => 'POST',
+            'uri' => '/api/articles',
+            'summary' => 'Create an article',
             'documentationUrl' => 'http://www.billomat.com/en/api/articles',
-            'parameters'       => array(
-                'article'  => $articleParameter
-            )
-        ),
+            'parameters' => [
+                'article' => $articleParameter
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'UpdateArticle' => array(
-            'httpMethod'       => 'PUT',
-            'uri'              => '/api/articles/{id}',
-            'summary'          => 'Update an article',
+        'UpdateArticle' => [
+            'httpMethod' => 'PUT',
+            'uri' => '/api/articles/{id}',
+            'summary' => 'Update an article',
             'documentationUrl' => 'http://www.billomat.com/en/api/articles',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Article id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                ),
-                'article'  => $articleParameter
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ],
+                'article' => $articleParameter
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'DeleteArticle' => array(
-            'httpMethod'       => 'DELETE',
-            'uri'              => '/api/articles/{id}',
-            'summary'          => 'Delete an article',
+        'DeleteArticle' => [
+            'httpMethod' => 'DELETE',
+            'uri' => '/api/articles/{id}',
+            'summary' => 'Delete an article',
             'documentationUrl' => 'http://www.billomat.com/en/api/articles',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Article id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                )
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
         /**
          * --------------------------------------------------------------------------------
@@ -1767,75 +1779,78 @@ return array(
          * --------------------------------------------------------------------------------
          */
 
-        'GetArticlePropertyValues' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/article-property-values',
-            'summary'          => 'List all article property values',
+        'GetArticlePropertyValues' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/article-property-values',
+            'summary' => 'List all article property values',
             'documentationUrl' => 'http://www.billomat.com/en/api/articles/properties',
-            'parameters'       => array(
-                'per_page'  => array(
+            'parameters' => [
+                'per_page' => [
                     'description' => 'Rows per page',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'per_page',
-                    'required'    => false
-                ),
-                'page'  => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'per_page',
+                    'required' => false
+                ],
+                'page' => [
                     'description' => 'Page',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'page',
-                    'required'    => false
-                ),
-                'order_by'  => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'page',
+                    'required' => false
+                ],
+                'order_by' => [
                     'description' => 'Order by',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'order_by',
-                    'required'    => false
-                ),
-                'article_id'  => array(
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'order_by',
+                    'required' => false
+                ],
+                'article_id' => [
                     'description' => 'ID of a article',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'article_id',
-                    'required'    => false
-                ),
-                'article_property_id'  => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'article_id',
+                    'required' => false
+                ],
+                'article_property_id' => [
                     'description' => 'ID of a property',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'article_property_id',
-                    'required'    => false
-                )
-            )
-        ),
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'article_property_id',
+                    'required' => false
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'GetArticlePropertyValue' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/article-property-values/{id}',
-            'summary'          => 'Get a specific property',
+        'GetArticlePropertyValue' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/article-property-values/{id}',
+            'summary' => 'Get a specific property',
             'documentationUrl' => 'http://www.billomat.com/en/api/articles/properties',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Article property value id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                )
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'SetArticlePropertyValue' => array(
-            'httpMethod'       => 'POST',
-            'uri'              => '/api/article-property-values',
-            'summary'          => 'Set a specific article property',
+        'SetArticlePropertyValue' => [
+            'httpMethod' => 'POST',
+            'uri' => '/api/article-property-values',
+            'summary' => 'Set a specific article property',
             'documentationUrl' => 'http://www.billomat.com/en/api/articles/properties',
-            'parameters'       => array(
-                'article-property-value'  => $articlePropertyValueParameter
-            )
-        ),
+            'parameters' => [
+                'article-property-value' => $articlePropertyValueParameter
+            ],
+            'responseModel' => 'Generic',
+        ],
 
         /**
          * --------------------------------------------------------------------------------
@@ -1843,418 +1858,429 @@ return array(
          * --------------------------------------------------------------------------------
          */
 
-        'GetInvoices' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/invoices',
-            'summary'          => 'List all invoices',
+        'GetInvoices' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/invoices',
+            'summary' => 'List all invoices',
             'documentationUrl' => 'http://www.billomat.com/en/api/invoices',
-            'parameters'       => array(
-                'per_page'  => array(
+            'parameters' => [
+                'per_page' => [
                     'description' => 'Rows per page',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'per_page',
-                    'required'    => false
-                ),
-                'page'  => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'per_page',
+                    'required' => false
+                ],
+                'page' => [
                     'description' => 'Page',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'page',
-                    'required'    => false
-                ),
-                'order_by'  => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'page',
+                    'required' => false
+                ],
+                'order_by' => [
                     'description' => 'Order by',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'order_by',
-                    'required'    => false
-                ),
-                'client_id'  => array(
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'order_by',
+                    'required' => false
+                ],
+                'client_id' => [
                     'description' => 'ID of the client',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'client_id',
-                    'required'    => false
-                ),
-                'contact_id'  => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'client_id',
+                    'required' => false
+                ],
+                'contact_id' => [
                     'description' => 'ID of the contact',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'contact_id',
-                    'required'    => false
-                ),
-                'invoice_number'  => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'contact_id',
+                    'required' => false
+                ],
+                'invoice_number' => [
                     'description' => 'Invoice number',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'invoice_number',
-                    'required'    => false
-                ),
-                'status'  => array(
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'invoice_number',
+                    'required' => false
+                ],
+                'status' => [
                     'description' => 'Comma separated list of logically OR-connected statuses',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'status',
-                    'required'    => false
-                ),
-                'payment_type'  => array(
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'status',
+                    'required' => false
+                ],
+                'payment_type' => [
                     'description' => 'Comma separated list of logically OR-connected payment types',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'payment_type',
-                    'required'    => false
-                ),
-                'from'  => array(
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'payment_type',
+                    'required' => false
+                ],
+                'from' => [
                     'description' => 'Only list invoices since this date (format YYYY-MM-DD)',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'from',
-                    'required'    => false
-                ),
-                'to'  => array(
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'from',
+                    'required' => false
+                ],
+                'to' => [
                     'description' => 'Only list invoices up to this date (format YYYY-MM-DD)',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'to',
-                    'required'    => false
-                ),
-                'label'  => array(
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'to',
+                    'required' => false
+                ],
+                'label' => [
                     'description' => 'Free text search in label text',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'label',
-                    'required'    => false
-                ),
-                'intro'  => array(
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'label',
+                    'required' => false
+                ],
+                'intro' => [
                     'description' => 'Free text search in introductory text',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'intro',
-                    'required'    => false
-                ),
-                'note'  => array(
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'intro',
+                    'required' => false
+                ],
+                'note' => [
                     'description' => 'Free text search in explanatory notes',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'note',
-                    'required'    => false
-                ),
-                'tags'  => array(
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'note',
+                    'required' => false
+                ],
+                'tags' => [
                     'description' => 'Comma separated list of tags',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'tags',
-                    'required'    => false
-                ),
-                'group_by'  => array(
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'tags',
+                    'required' => false
+                ],
+                'group_by' => [
                     'description' => 'Grouping parameter',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'enum' => array('client', 'status', 'day', 'week', 'month', 'year'),
-                    'sentAs'      => 'group_by',
-                    'required'    => false
-                )
-            )
-        ),
+                    'location' => 'query',
+                    'type' => 'string',
+                    'enum' => ['client', 'status', 'day', 'week', 'month', 'year'],
+                    'sentAs' => 'group_by',
+                    'required' => false
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'GetInvoice' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/invoices/{id}',
-            'summary'          => 'Get a specific invoice',
+        'GetInvoice' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/invoices/{id}',
+            'summary' => 'Get a specific invoice',
             'documentationUrl' => 'http://www.billomat.com/en/api/invoices',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Invoice id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                )
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'CreateInvoice' => array(
-            'httpMethod'       => 'POST',
-            'uri'              => '/api/invoices',
-            'summary'          => 'Create an invoice',
+        'CreateInvoice' => [
+            'httpMethod' => 'POST',
+            'uri' => '/api/invoices',
+            'summary' => 'Create an invoice',
             'documentationUrl' => 'http://www.billomat.com/en/api/invoices',
-            'parameters'       => array(
-                'invoice'  => $invoiceParameter
-            )
-        ),
+            'parameters' => [
+                'invoice' => $invoiceParameter
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'UpdateInvoice' => array(
-            'httpMethod'       => 'PUT',
-            'uri'              => '/api/invoices/{id}',
-            'summary'          => 'Update an invoice',
+        'UpdateInvoice' => [
+            'httpMethod' => 'PUT',
+            'uri' => '/api/invoices/{id}',
+            'summary' => 'Update an invoice',
             'documentationUrl' => 'http://www.billomat.com/en/api/invoices',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Invoice id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                ),
-                'invoice'  => $invoiceParameter
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ],
+                'invoice' => $invoiceParameter
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'CompleteInvoice' => array(
-            'httpMethod'       => 'PUT',
-            'uri'              => '/api/invoices/{id}/complete',
-            'summary'          => 'Complete an invoice',
+        'CompleteInvoice' => [
+            'httpMethod' => 'PUT',
+            'uri' => '/api/invoices/{id}/complete',
+            'summary' => 'Complete an invoice',
             'documentationUrl' => 'http://www.billomat.com/en/api/invoices',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Invoice id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                ),
-                'complete'  => array(
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ],
+                'complete' => [
                     'description' => 'Invoice complete data',
                     'location' => 'json',
                     'type' => 'object',
                     'sentAs' => 'complete',
                     'required' => true,
-                    'properties' => array(
-                        'template_id' => array(
+                    'properties' => [
+                        'template_id' => [
                             'description' => 'ID of the template to complete the invoice with',
                             'type' => 'integer',
                             'sentAs' => 'template_id',
                             'required' => false,
-                        )
-                    )
-                )
-            )
-        ),
+                        ]
+                    ]
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'GetInvoicePdf' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/invoices/{id}/pdf',
-            'summary'          => 'Open pdf of an invoice',
+        'GetInvoicePdf' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/invoices/{id}/pdf',
+            'summary' => 'Open pdf of an invoice',
             'documentationUrl' => 'http://www.billomat.com/en/api/invoices',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Invoice id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                ),
-                'accept'  => array(
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ],
+                'accept' => [
                     'description' => 'Accept header',
-                    'location'    => 'header',
-                    'type'        => 'string',
-                    'enum' => array('application/pdf'),
-                    'sentAs'      => 'Accept',
-                    'required'    => false
-                ),
-                'format'  => array(
+                    'location' => 'header',
+                    'type' => 'string',
+                    'enum' => ['application/pdf'],
+                    'sentAs' => 'Accept',
+                    'required' => false
+                ],
+                'format' => [
                     'description' => 'Response format',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'enum' => array('pdf'),
-                    'sentAs'      => 'format',
-                    'required'    => false
-                ),
-                'type'  => array(
+                    'location' => 'query',
+                    'type' => 'string',
+                    'enum' => ['pdf'],
+                    'sentAs' => 'format',
+                    'required' => false
+                ],
+                'type' => [
                     'description' => 'Response type',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'enum' => array('print'),
-                    'sentAs'      => 'format',
-                    'required'    => false
-                )
-            )
-        ),
+                    'location' => 'query',
+                    'type' => 'string',
+                    'enum' => ['print'],
+                    'sentAs' => 'format',
+                    'required' => false
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'SignInvoice' => array(
-            'httpMethod'       => 'PUT',
-            'uri'              => '/api/invoices/{id}/upload-signature',
-            'summary'          => 'Upload a digital signature for a given invoice',
+        'SignInvoice' => [
+            'httpMethod' => 'PUT',
+            'uri' => '/api/invoices/{id}/upload-signature',
+            'summary' => 'Upload a digital signature for a given invoice',
             'documentationUrl' => 'http://www.billomat.com/en/api/invoices',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Invoice id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                ),
-                'signature'  => array(
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ],
+                'signature' => [
                     'description' => 'Digital signature',
                     'location' => 'json',
                     'type' => 'object',
                     'sentAs' => 'signature',
                     'required' => true,
-                    'properties' => array(
-                        'base64file' => array(
+                    'properties' => [
+                        'base64file' => [
                             'description' => 'Base64 encoded PDF with digital signature',
                             'type' => 'string',
                             'sentAs' => 'base64file',
                             'required' => true,
-                        )
-                    )
-                )
-            )
-        ),
+                        ]
+                    ]
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'SendInvoiceEmail' => array(
-            'httpMethod'       => 'POST',
-            'uri'              => '/api/invoices/{id}/email',
-            'summary'          => 'Send invoice by e-mail',
+        'SendInvoiceEmail' => [
+            'httpMethod' => 'POST',
+            'uri' => '/api/invoices/{id}/email',
+            'summary' => 'Send invoice by e-mail',
             'documentationUrl' => 'http://www.billomat.com/en/api/invoices',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Invoice id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                ),
-                'email'  => array(
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ],
+                'email' => [
                     'description' => 'Email data',
                     'location' => 'json',
                     'type' => 'object',
                     'sentAs' => 'email',
                     'required' => true,
-                    'properties' => array(
-                        'from' => array(
+                    'properties' => [
+                        'from' => [
                             'description' => 'Sender email address. Default: email from the settings',
                             'type' => 'string',
                             'sentAs' => 'from',
                             'required' => false,
-                        ),
-                        'recipients' => array(
+                        ],
+                        'recipients' => [
                             'description' => 'Recipients of the e-mail. There must be at least one of "to", "cc" and/or "bcc"',
                             'type' => 'object',
                             'sentAs' => 'recipients',
                             'required' => true,
-                            'properties' => array(
-                                'to' => array(
+                            'properties' => [
+                                'to' => [
                                     'description' => 'Recipient email address',
                                     'type' => 'string',
                                     'sentAs' => 'to',
                                     'required' => false,
-                                ),
-                                'cc' => array(
+                                ],
+                                'cc' => [
                                     'description' => 'CC Recipient',
                                     'type' => 'string',
                                     'sentAs' => 'cc',
                                     'required' => false,
-                                ),
-                                'bcc' => array(
+                                ],
+                                'bcc' => [
                                     'description' => 'BCC Recipient',
                                     'type' => 'string',
                                     'sentAs' => 'bcc',
                                     'required' => false,
-                                ),
-                            ),
-                        ),
-                        'subject' => array(
+                                ],
+                            ],
+                        ],
+                        'subject' => [
                             'description' => 'Subject of the e-mail (may include placeholders). Default: Value taken from the settings',
                             'type' => 'string',
                             'sentAs' => 'subject',
                             'required' => false,
-                        ),
-                        'body' => array(
+                        ],
+                        'body' => [
                             'description' => 'Text of the e-mail (may include placeholders). Default: Value taken from the settings',
                             'type' => 'string',
                             'sentAs' => 'body',
                             'required' => false,
-                        ),
-                        'filename' => array(
+                        ],
+                        'filename' => [
                             'description' => 'Name of the PDF file (without .pdf). Default: invoice_{id}',
                             'type' => 'string',
                             'sentAs' => 'filename',
                             'required' => false,
-                        ),
-                        'attachments' => array(
+                        ],
+                        'attachments' => [
                             'description' => 'Further files',
                             'type' => 'array',
                             'sentAs' => 'attachments',
                             'required' => false,
-                            'items' => array(
+                            'items' => [
                                 'type' => 'object',
                                 'sendAs' => 'attachment',
-                                'properties' => array(
-                                    'filename' => array(
+                                'properties' => [
+                                    'filename' => [
                                         'description' => 'Filename',
                                         'type' => 'string',
                                         'sentAs' => 'filename',
                                         'required' => true,
-                                    ),
-                                    'mimetype' => array(
+                                    ],
+                                    'mimetype' => [
                                         'description' => 'Mime type',
                                         'type' => 'string',
                                         'sentAs' => 'mimetype',
                                         'required' => true,
-                                    ),
-                                    'base64file' => array(
+                                    ],
+                                    'base64file' => [
                                         'description' => 'Base64 encoded file',
                                         'type' => 'string',
                                         'sentAs' => 'base64file',
                                         'required' => true,
-                                    ),
-                                ),
-                            ),
-                        )
-                    )
-                )
-            )
-        ),
+                                    ],
+                                ],
+                            ],
+                        ]
+                    ]
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'CancelInvoice' => array(
-            'httpMethod'       => 'PUT',
-            'uri'              => '/api/invoices/{id}/cancel',
-            'summary'          => 'Cancel an invoice',
+        'CancelInvoice' => [
+            'httpMethod' => 'PUT',
+            'uri' => '/api/invoices/{id}/cancel',
+            'summary' => 'Cancel an invoice',
             'documentationUrl' => 'http://www.billomat.com/en/api/invoices',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Invoice id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                )
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'UndoCancelInvoice' => array(
-            'httpMethod'       => 'PUT',
-            'uri'              => '/api/invoices/{id}/uncancel',
-            'summary'          => 'Undo invoice cancellation',
+        'UndoCancelInvoice' => [
+            'httpMethod' => 'PUT',
+            'uri' => '/api/invoices/{id}/uncancel',
+            'summary' => 'Undo invoice cancellation',
             'documentationUrl' => 'http://www.billomat.com/en/api/invoices',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Invoice id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                )
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'DeleteInvoice' => array(
-            'httpMethod'       => 'DELETE',
-            'uri'              => '/api/invoices/{id}',
-            'summary'          => 'Delete an invoice',
+        'DeleteInvoice' => [
+            'httpMethod' => 'DELETE',
+            'uri' => '/api/invoices/{id}',
+            'summary' => 'Delete an invoice',
             'documentationUrl' => 'http://www.billomat.com/en/api/invoices',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Invoice id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                )
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
         /**
          * --------------------------------------------------------------------------------
@@ -2262,101 +2288,106 @@ return array(
          * --------------------------------------------------------------------------------
          */
 
-        'GetInvoiceItems' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/invoice-items',
-            'summary'          => 'List all invoice items',
+        'GetInvoiceItems' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/invoice-items',
+            'summary' => 'List all invoice items',
             'documentationUrl' => 'http://www.billomat.com/en/api/invoices/items',
-            'parameters'       => array(
-                'per_page'  => array(
+            'parameters' => [
+                'per_page' => [
                     'description' => 'Rows per page',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'per_page',
-                    'required'    => false
-                ),
-                'page'  => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'per_page',
+                    'required' => false
+                ],
+                'page' => [
                     'description' => 'Page',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'page',
-                    'required'    => false
-                ),
-                'order_by'  => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'page',
+                    'required' => false
+                ],
+                'order_by' => [
                     'description' => 'Order by',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'order_by',
-                    'required'    => false
-                ),
-                'invoice_id'  => array(
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'order_by',
+                    'required' => false
+                ],
+                'invoice_id' => [
                     'description' => 'ID of the invoice',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'invoice_id',
-                    'required'    => true
-                )
-            )
-        ),
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'invoice_id',
+                    'required' => true
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'GetInvoiceItem' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/invoice-items/{id}',
-            'summary'          => 'Get a specific invoice item',
+        'GetInvoiceItem' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/invoice-items/{id}',
+            'summary' => 'Get a specific invoice item',
             'documentationUrl' => 'http://www.billomat.com/en/api/invoices/items',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Invoice item id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                )
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'CreateInvoiceItem' => array(
-            'httpMethod'       => 'POST',
-            'uri'              => '/api/invoice-items',
-            'summary'          => 'Create an invoice item',
+        'CreateInvoiceItem' => [
+            'httpMethod' => 'POST',
+            'uri' => '/api/invoice-items',
+            'summary' => 'Create an invoice item',
             'documentationUrl' => 'http://www.billomat.com/en/api/invoices/items',
-            'parameters'       => array(
-                'invoice-item'  => $invoiceItemParameterCreate
-            )
-        ),
+            'parameters' => [
+                'invoice-item' => $invoiceItemParameterCreate
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'UpdateInvoiceItem' => array(
-            'httpMethod'       => 'PUT',
-            'uri'              => '/api/invoice-items/{id}',
-            'summary'          => 'Update an invoice item',
+        'UpdateInvoiceItem' => [
+            'httpMethod' => 'PUT',
+            'uri' => '/api/invoice-items/{id}',
+            'summary' => 'Update an invoice item',
             'documentationUrl' => 'http://www.billomat.com/en/api/invoices/items',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Invoice item id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                ),
-                'invoice-item'  => $invoiceItemParameter
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ],
+                'invoice-item' => $invoiceItemParameter
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'DeleteInvoiceItem' => array(
-            'httpMethod'       => 'DELETE',
-            'uri'              => '/api/invoice-items/{id}',
-            'summary'          => 'Delete an invoice item',
+        'DeleteInvoiceItem' => [
+            'httpMethod' => 'DELETE',
+            'uri' => '/api/invoice-items/{id}',
+            'summary' => 'Delete an invoice item',
             'documentationUrl' => 'http://www.billomat.com/en/api/invoices/items',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Invoice item id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                )
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
         /**
          * --------------------------------------------------------------------------------
@@ -2364,92 +2395,96 @@ return array(
          * --------------------------------------------------------------------------------
          */
 
-        'GetInvoicePayments' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/invoice-payments',
-            'summary'          => 'List all invoice payments',
+        'GetInvoicePayments' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/invoice-payments',
+            'summary' => 'List all invoice payments',
             'documentationUrl' => 'http://www.billomat.com/en/api/invoices/payments',
-            'parameters'       => array(
-                'invoice_id'  => array(
+            'parameters' => [
+                'invoice_id' => [
                     'description' => 'ID of the invoice',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'invoice_id',
-                    'required'    => false
-                ),
-                'from'  => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'invoice_id',
+                    'required' => false
+                ],
+                'from' => [
                     'description' => 'Only list payments since this date (format YYYY-MM-DD)',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'from',
-                    'required'    => false
-                ),
-                'to'  => array(
-                    'description' => 'Only list payments up to this date (format YYYY-MM-DD)',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'to',
-                    'required'    => false
-                ),
-                'type' => array(
-                    'description' => 'Payment type',
-                    'location'    => 'query',
+                    'location' => 'query',
                     'type' => 'string',
-                    'enum' => array('CREDIT_NOTE', 'BANK_CARD', 'BANK_TRANSFER', 'DEBIT', 'CASH', 'CHECK', 'PAYPAL', 'CREDIT_CARD', 'COUPON', 'MISC'),
+                    'sentAs' => 'from',
+                    'required' => false
+                ],
+                'to' => [
+                    'description' => 'Only list payments up to this date (format YYYY-MM-DD)',
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'to',
+                    'required' => false
+                ],
+                'type' => [
+                    'description' => 'Payment type',
+                    'location' => 'query',
+                    'type' => 'string',
+                    'enum' => ['CREDIT_NOTE', 'BANK_CARD', 'BANK_TRANSFER', 'DEBIT', 'CASH', 'CHECK', 'PAYPAL', 'CREDIT_CARD', 'COUPON', 'MISC'],
                     'sentAs' => 'type',
                     'required' => false,
-                ),
-                'user_id'  => array(
+                ],
+                'user_id' => [
                     'description' => 'ID of the user',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'user_id',
-                    'required'    => false
-                )
-            )
-        ),
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'user_id',
+                    'required' => false
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'GetInvoicePayment' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/invoice-payments/{id}',
-            'summary'          => 'Get a specific invoice payment',
+        'GetInvoicePayment' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/invoice-payments/{id}',
+            'summary' => 'Get a specific invoice payment',
             'documentationUrl' => 'http://www.billomat.com/en/api/invoices/payments',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'ID of the invoice payment',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                )
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'CreateInvoicePayment' => array(
-            'httpMethod'       => 'POST',
-            'uri'              => '/api/invoice-payments',
-            'summary'          => 'Create an invoice payment',
+        'CreateInvoicePayment' => [
+            'httpMethod' => 'POST',
+            'uri' => '/api/invoice-payments',
+            'summary' => 'Create an invoice payment',
             'documentationUrl' => 'http://www.billomat.com/en/api/invoices/payments',
-            'parameters'       => array(
-                'invoice-payment'  => $invoicePaymentParameterCreate
-            )
-        ),
+            'parameters' => [
+                'invoice-payment' => $invoicePaymentParameterCreate
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'DeleteInvoicePayment' => array(
-            'httpMethod'       => 'DELETE',
-            'uri'              => '/api/invoice-payments/{id}',
-            'summary'          => 'Delete a specific invoice payment',
+        'DeleteInvoicePayment' => [
+            'httpMethod' => 'DELETE',
+            'uri' => '/api/invoice-payments/{id}',
+            'summary' => 'Delete a specific invoice payment',
             'documentationUrl' => 'http://www.billomat.com/en/api/invoices/payments',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'ID of the invoice payment',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                )
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
         /**
          * --------------------------------------------------------------------------------
@@ -2457,71 +2492,76 @@ return array(
          * --------------------------------------------------------------------------------
          */
 
-        'GetInvoiceTagCloud' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/invoice-tags',
-            'summary'          => 'Get the invoice tag cloud',
+        'GetInvoiceTagCloud' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/invoice-tags',
+            'summary' => 'Get the invoice tag cloud',
             'documentationUrl' => 'http://www.billomat.com/en/api/invoices/tags',
-            'parameters'       => array()
-        ),
+            'parameters' => [],
+            'responseModel' => 'Generic',
+        ],
 
-        'GetInvoiceTags' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/invoice-tags',
-            'summary'          => 'List all invoice tags',
+        'GetInvoiceTags' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/invoice-tags',
+            'summary' => 'List all invoice tags',
             'documentationUrl' => 'http://www.billomat.com/en/api/invoices/tags',
-            'parameters'       => array(
-                'invoice_id'  => array(
+            'parameters' => [
+                'invoice_id' => [
                     'description' => 'ID of the invoice',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'invoice_id',
-                    'required'    => true
-                )
-            )
-        ),
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'invoice_id',
+                    'required' => true
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'GetInvoiceTag' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/invoice-tags/{id}',
-            'summary'          => 'Get a specific invoice tag',
+        'GetInvoiceTag' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/invoice-tags/{id}',
+            'summary' => 'Get a specific invoice tag',
             'documentationUrl' => 'http://www.billomat.com/en/api/invoices/tags',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'ID of the invoice tag',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                )
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'CreateInvoiceTag' => array(
-            'httpMethod'       => 'POST',
-            'uri'              => '/api/invoice-tags',
-            'summary'          => 'Create an invoice tag',
+        'CreateInvoiceTag' => [
+            'httpMethod' => 'POST',
+            'uri' => '/api/invoice-tags',
+            'summary' => 'Create an invoice tag',
             'documentationUrl' => 'http://www.billomat.com/en/api/invoices/tags',
-            'parameters'       => array(
-                'invoice-tag'  => $invoiceTagParameterCreate
-            )
-        ),
+            'parameters' => [
+                'invoice-tag' => $invoiceTagParameterCreate
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'DeleteInvoiceTag' => array(
-            'httpMethod'       => 'DELETE',
-            'uri'              => '/api/invoice-tags/{id}',
-            'summary'          => 'Delete a specific invoice tag',
+        'DeleteInvoiceTag' => [
+            'httpMethod' => 'DELETE',
+            'uri' => '/api/invoice-tags/{id}',
+            'summary' => 'Delete a specific invoice tag',
             'documentationUrl' => 'http://www.billomat.com/en/api/invoices/tags',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'ID of the invoice tag',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                )
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
         /**
          * --------------------------------------------------------------------------------
@@ -2529,379 +2569,388 @@ return array(
          * --------------------------------------------------------------------------------
          */
 
-        'GetCreditNotes' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/credit-notes',
-            'summary'          => 'List all credit notes',
+        'GetCreditNotes' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/credit-notes',
+            'summary' => 'List all credit notes',
             'documentationUrl' => 'http://www.billomat.com/en/api/credit-notes',
-            'parameters'       => array(
-                'per_page'  => array(
+            'parameters' => [
+                'per_page' => [
                     'description' => 'Rows per page',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'per_page',
-                    'required'    => false
-                ),
-                'page'  => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'per_page',
+                    'required' => false
+                ],
+                'page' => [
                     'description' => 'Page',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'page',
-                    'required'    => false
-                ),
-                'order_by'  => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'page',
+                    'required' => false
+                ],
+                'order_by' => [
                     'description' => 'Order by',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'order_by',
-                    'required'    => false
-                ),
-                'client_id'  => array(
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'order_by',
+                    'required' => false
+                ],
+                'client_id' => [
                     'description' => 'ID of the client',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'client_id',
-                    'required'    => false
-                ),
-                'contact_id'  => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'client_id',
+                    'required' => false
+                ],
+                'contact_id' => [
                     'description' => 'ID of the contact',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'contact_id',
-                    'required'    => false
-                ),
-                'credit_note_number'  => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'contact_id',
+                    'required' => false
+                ],
+                'credit_note_number' => [
                     'description' => 'Credit note number',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'credit_note_number',
-                    'required'    => false
-                ),
-                'status'  => array(
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'credit_note_number',
+                    'required' => false
+                ],
+                'status' => [
                     'description' => 'Comma separated list of logically OR-connected statuses',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'status',
-                    'required'    => false
-                ),
-                'from'  => array(
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'status',
+                    'required' => false
+                ],
+                'from' => [
                     'description' => 'Only list credit notes since this date (format YYYY-MM-DD)',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'from',
-                    'required'    => false
-                ),
-                'to'  => array(
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'from',
+                    'required' => false
+                ],
+                'to' => [
                     'description' => 'Only list credit notes up to this date (format YYYY-MM-DD)',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'to',
-                    'required'    => false
-                ),
-                'label'  => array(
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'to',
+                    'required' => false
+                ],
+                'label' => [
                     'description' => 'Free text search in label text',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'label',
-                    'required'    => false
-                ),
-                'intro'  => array(
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'label',
+                    'required' => false
+                ],
+                'intro' => [
                     'description' => 'Free text search in introductory text',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'intro',
-                    'required'    => false
-                ),
-                'note'  => array(
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'intro',
+                    'required' => false
+                ],
+                'note' => [
                     'description' => 'Free text search in explanatory notes',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'note',
-                    'required'    => false
-                ),
-                'tags'  => array(
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'note',
+                    'required' => false
+                ],
+                'tags' => [
                     'description' => 'Comma separated list of tags',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'tags',
-                    'required'    => false
-                ),
-                'group_by'  => array(
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'tags',
+                    'required' => false
+                ],
+                'group_by' => [
                     'description' => 'Grouping parameter',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'enum' => array('client', 'status', 'day', 'week', 'month', 'year'),
-                    'sentAs'      => 'group_by',
-                    'required'    => false
-                )
-            )
-        ),
+                    'location' => 'query',
+                    'type' => 'string',
+                    'enum' => ['client', 'status', 'day', 'week', 'month', 'year'],
+                    'sentAs' => 'group_by',
+                    'required' => false
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'GetCreditNote' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/credit-notes/{id}',
-            'summary'          => 'Get a specific credit note',
+        'GetCreditNote' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/credit-notes/{id}',
+            'summary' => 'Get a specific credit note',
             'documentationUrl' => 'http://www.billomat.com/en/api/credit-notes',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Credit note id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                )
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'CreateCreditNote' => array(
-            'httpMethod'       => 'POST',
-            'uri'              => '/api/credit-notes',
-            'summary'          => 'Create an credit note',
+        'CreateCreditNote' => [
+            'httpMethod' => 'POST',
+            'uri' => '/api/credit-notes',
+            'summary' => 'Create an credit note',
             'documentationUrl' => 'http://www.billomat.com/en/api/credit-notes',
-            'parameters'       => array(
-                'credit-note'  => $creditNoteParameterCreate
-            )
-        ),
+            'parameters' => [
+                'credit-note' => $creditNoteParameterCreate
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'UpdateCreditNote' => array(
-            'httpMethod'       => 'PUT',
-            'uri'              => '/api/credit-notes/{id}',
-            'summary'          => 'Update an credit note',
+        'UpdateCreditNote' => [
+            'httpMethod' => 'PUT',
+            'uri' => '/api/credit-notes/{id}',
+            'summary' => 'Update an credit note',
             'documentationUrl' => 'http://www.billomat.com/en/api/credit-notes',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Credit note id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                ),
-                'credit-note'  => $creditNoteParameter
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ],
+                'credit-note' => $creditNoteParameter
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'CompleteCreditNote' => array(
-            'httpMethod'       => 'PUT',
-            'uri'              => '/api/credit-notes/{id}/complete',
-            'summary'          => 'Complete an credit note',
+        'CompleteCreditNote' => [
+            'httpMethod' => 'PUT',
+            'uri' => '/api/credit-notes/{id}/complete',
+            'summary' => 'Complete an credit note',
             'documentationUrl' => 'http://www.billomat.com/en/api/credit-notes',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Credit note id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                ),
-                'complete'  => array(
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ],
+                'complete' => [
                     'description' => 'Credit note complete data',
                     'location' => 'json',
                     'type' => 'object',
                     'sentAs' => 'complete',
                     'required' => true,
-                    'properties' => array(
-                        'template_id' => array(
+                    'properties' => [
+                        'template_id' => [
                             'description' => 'ID of the template to complete the credit note with',
                             'type' => 'integer',
                             'sentAs' => 'template_id',
                             'required' => false,
-                        )
-                    )
-                )
-            )
-        ),
+                        ]
+                    ]
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'GetCreditNotePdf' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/credit-notes/{id}/pdf',
-            'summary'          => 'Open pdf of an credit note',
+        'GetCreditNotePdf' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/credit-notes/{id}/pdf',
+            'summary' => 'Open pdf of an credit note',
             'documentationUrl' => 'http://www.billomat.com/en/api/credit-notes',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Credit note id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                ),
-                'accept'  => array(
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ],
+                'accept' => [
                     'description' => 'Accept header',
-                    'location'    => 'header',
-                    'type'        => 'string',
-                    'enum' => array('application/pdf'),
-                    'sentAs'      => 'Accept',
-                    'required'    => false
-                ),
-                'format'  => array(
+                    'location' => 'header',
+                    'type' => 'string',
+                    'enum' => ['application/pdf'],
+                    'sentAs' => 'Accept',
+                    'required' => false
+                ],
+                'format' => [
                     'description' => 'Response format',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'enum' => array('pdf'),
-                    'sentAs'      => 'format',
-                    'required'    => false
-                ),
-                'type'  => array(
+                    'location' => 'query',
+                    'type' => 'string',
+                    'enum' => ['pdf'],
+                    'sentAs' => 'format',
+                    'required' => false
+                ],
+                'type' => [
                     'description' => 'Response type',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'enum' => array('print'),
-                    'sentAs'      => 'type',
-                    'required'    => false
-                )
-            )
-        ),
+                    'location' => 'query',
+                    'type' => 'string',
+                    'enum' => ['print'],
+                    'sentAs' => 'type',
+                    'required' => false
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'SignCreditNote' => array(
-            'httpMethod'       => 'PUT',
-            'uri'              => '/api/credit-notes/{id}/upload-signature',
-            'summary'          => 'Upload a digital signature for a given credit note',
+        'SignCreditNote' => [
+            'httpMethod' => 'PUT',
+            'uri' => '/api/credit-notes/{id}/upload-signature',
+            'summary' => 'Upload a digital signature for a given credit note',
             'documentationUrl' => 'http://www.billomat.com/en/api/credit-notes',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Credit note id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                ),
-                'signature'  => array(
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ],
+                'signature' => [
                     'description' => 'Digital signature',
                     'location' => 'json',
                     'type' => 'object',
                     'sentAs' => 'signature',
                     'required' => true,
-                    'properties' => array(
-                        'base64file' => array(
+                    'properties' => [
+                        'base64file' => [
                             'description' => 'Base64 encoded PDF with digital signature',
                             'type' => 'string',
                             'sentAs' => 'base64file',
                             'required' => true,
-                        )
-                    )
-                )
-            )
-        ),
+                        ]
+                    ]
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'SendCreditNoteEmail' => array(
-            'httpMethod'       => 'POST',
-            'uri'              => '/api/credit-notes/{id}/email',
-            'summary'          => 'Send credit note by e-mail',
+        'SendCreditNoteEmail' => [
+            'httpMethod' => 'POST',
+            'uri' => '/api/credit-notes/{id}/email',
+            'summary' => 'Send credit note by e-mail',
             'documentationUrl' => 'http://www.billomat.com/en/api/credit-notes',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Credit note id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                ),
-                'email'  => array(
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ],
+                'email' => [
                     'description' => 'Email data',
                     'location' => 'json',
                     'type' => 'object',
                     'sentAs' => 'email',
                     'required' => true,
-                    'properties' => array(
-                        'from' => array(
+                    'properties' => [
+                        'from' => [
                             'description' => 'Sender email address. Default: email from the settings',
                             'type' => 'string',
                             'sentAs' => 'from',
                             'required' => false,
-                        ),
-                        'recipients' => array(
+                        ],
+                        'recipients' => [
                             'description' => 'Recipients of the e-mail. There must be at least one of "to", "cc" and/or "bcc"',
                             'type' => 'object',
                             'sentAs' => 'recipients',
                             'required' => true,
-                            'properties' => array(
-                                'to' => array(
+                            'properties' => [
+                                'to' => [
                                     'description' => 'Recipient email address',
                                     'type' => 'string',
                                     'sentAs' => 'to',
                                     'required' => false,
-                                ),
-                                'cc' => array(
+                                ],
+                                'cc' => [
                                     'description' => 'CC Recipient',
                                     'type' => 'string',
                                     'sentAs' => 'cc',
                                     'required' => false,
-                                ),
-                                'bcc' => array(
+                                ],
+                                'bcc' => [
                                     'description' => 'BCC Recipient',
                                     'type' => 'string',
                                     'sentAs' => 'bcc',
                                     'required' => false,
-                                ),
-                            ),
-                        ),
-                        'subject' => array(
+                                ],
+                            ],
+                        ],
+                        'subject' => [
                             'description' => 'Subject of the e-mail (may include placeholders). Default: Value taken from the settings',
                             'type' => 'string',
                             'sentAs' => 'subject',
                             'required' => false,
-                        ),
-                        'body' => array(
+                        ],
+                        'body' => [
                             'description' => 'Text of the e-mail (may include placeholders). Default: Value taken from the settings',
                             'type' => 'string',
                             'sentAs' => 'body',
                             'required' => false,
-                        ),
-                        'filename' => array(
+                        ],
+                        'filename' => [
                             'description' => 'Name of the PDF file (without .pdf). Default: invoice_{id}',
                             'type' => 'string',
                             'sentAs' => 'filename',
                             'required' => false,
-                        ),
-                        'attachments' => array(
+                        ],
+                        'attachments' => [
                             'description' => 'Further files',
                             'type' => 'array',
                             'sentAs' => 'attachments',
                             'required' => false,
-                            'items' => array(
+                            'items' => [
                                 'type' => 'object',
                                 'sendAs' => 'attachment',
-                                'properties' => array(
-                                    'filename' => array(
+                                'properties' => [
+                                    'filename' => [
                                         'description' => 'Filename',
                                         'type' => 'string',
                                         'sentAs' => 'filename',
                                         'required' => true,
-                                    ),
-                                    'mimetype' => array(
+                                    ],
+                                    'mimetype' => [
                                         'description' => 'Mime type',
                                         'type' => 'string',
                                         'sentAs' => 'mimetype',
                                         'required' => true,
-                                    ),
-                                    'base64file' => array(
+                                    ],
+                                    'base64file' => [
                                         'description' => 'Base64 encoded file',
                                         'type' => 'string',
                                         'sentAs' => 'base64file',
                                         'required' => true,
-                                    ),
-                                ),
-                            ),
-                        )
-                    )
-                )
-            )
-        ),
+                                    ],
+                                ],
+                            ],
+                        ]
+                    ]
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'DeleteCreditNote' => array(
-            'httpMethod'       => 'DELETE',
-            'uri'              => '/api/credit-notes/{id}',
-            'summary'          => 'Delete an credit note',
+        'DeleteCreditNote' => [
+            'httpMethod' => 'DELETE',
+            'uri' => '/api/credit-notes/{id}',
+            'summary' => 'Delete an credit note',
             'documentationUrl' => 'http://www.billomat.com/en/api/credit-notes',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Credit note id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                )
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
         /**
          * --------------------------------------------------------------------------------
@@ -2909,101 +2958,106 @@ return array(
          * --------------------------------------------------------------------------------
          */
 
-        'GetCreditNoteItems' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/credit-note-items',
-            'summary'          => 'List all credit note items',
+        'GetCreditNoteItems' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/credit-note-items',
+            'summary' => 'List all credit note items',
             'documentationUrl' => 'http://www.billomat.com/en/api/credit-notes/items',
-            'parameters'       => array(
-                'per_page'  => array(
+            'parameters' => [
+                'per_page' => [
                     'description' => 'Rows per page',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'per_page',
-                    'required'    => false
-                ),
-                'page'  => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'per_page',
+                    'required' => false
+                ],
+                'page' => [
                     'description' => 'Page',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'page',
-                    'required'    => false
-                ),
-                'order_by'  => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'page',
+                    'required' => false
+                ],
+                'order_by' => [
                     'description' => 'Order by',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'order_by',
-                    'required'    => false
-                ),
-                'credit_note_id'  => array(
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'order_by',
+                    'required' => false
+                ],
+                'credit_note_id' => [
                     'description' => 'ID of the credit note',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'credit_note_id',
-                    'required'    => true
-                )
-            )
-        ),
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'credit_note_id',
+                    'required' => true
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'GetCreditNoteItem' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/credit-note-items/{id}',
-            'summary'          => 'Get a specific credit note item',
+        'GetCreditNoteItem' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/credit-note-items/{id}',
+            'summary' => 'Get a specific credit note item',
             'documentationUrl' => 'http://www.billomat.com/en/api/credit-notes/items',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Credit note item id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                )
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'CreateCreditNoteItem' => array(
-            'httpMethod'       => 'POST',
-            'uri'              => '/api/credit-note-items',
-            'summary'          => 'Create an credit note item',
+        'CreateCreditNoteItem' => [
+            'httpMethod' => 'POST',
+            'uri' => '/api/credit-note-items',
+            'summary' => 'Create an credit note item',
             'documentationUrl' => 'http://www.billomat.com/en/api/credit-notes/items',
-            'parameters'       => array(
-                'credit-note-item'  => $creditNoteItemParameterCreate
-            )
-        ),
+            'parameters' => [
+                'credit-note-item' => $creditNoteItemParameterCreate
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'UpdateCreditNoteItem' => array(
-            'httpMethod'       => 'PUT',
-            'uri'              => '/api/credit-note-items/{id}',
-            'summary'          => 'Update an credit note item',
+        'UpdateCreditNoteItem' => [
+            'httpMethod' => 'PUT',
+            'uri' => '/api/credit-note-items/{id}',
+            'summary' => 'Update an credit note item',
             'documentationUrl' => 'http://www.billomat.com/en/api/credit-notes/items',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Credit note item id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                ),
-                'credit-note-item'  => $creditNoteItemParameter
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ],
+                'credit-note-item' => $creditNoteItemParameter
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'DeleteCreditNoteItem' => array(
-            'httpMethod'       => 'DELETE',
-            'uri'              => '/api/credit-note-items/{id}',
-            'summary'          => 'Delete an credit note item',
+        'DeleteCreditNoteItem' => [
+            'httpMethod' => 'DELETE',
+            'uri' => '/api/credit-note-items/{id}',
+            'summary' => 'Delete an credit note item',
             'documentationUrl' => 'http://www.billomat.com/en/api/credit-notes/items',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Credit note item id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                )
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
         /**
          * --------------------------------------------------------------------------------
@@ -3011,92 +3065,96 @@ return array(
          * --------------------------------------------------------------------------------
          */
 
-        'GetCreditNotePayments' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/credit-note-payments',
-            'summary'          => 'List all credit note payments',
+        'GetCreditNotePayments' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/credit-note-payments',
+            'summary' => 'List all credit note payments',
             'documentationUrl' => 'http://www.billomat.com/en/api/credit-notes/payments',
-            'parameters'       => array(
-                'credit_note_id'  => array(
+            'parameters' => [
+                'credit_note_id' => [
                     'description' => 'ID of the credit note',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'credit_note_id',
-                    'required'    => false
-                ),
-                'from'  => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'credit_note_id',
+                    'required' => false
+                ],
+                'from' => [
                     'description' => 'Only list payments since this date (format YYYY-MM-DD)',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'from',
-                    'required'    => false
-                ),
-                'to'  => array(
-                    'description' => 'Only list payments up to this date (format YYYY-MM-DD)',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'to',
-                    'required'    => false
-                ),
-                'type' => array(
-                    'description' => 'Payment type',
-                    'location'    => 'query',
+                    'location' => 'query',
                     'type' => 'string',
-                    'enum' => array('CREDIT_NOTE', 'BANK_TRANSFER', 'DEBIT', 'CASH', 'PAYPAL', 'CREDIT_CARD', 'MISC'),
+                    'sentAs' => 'from',
+                    'required' => false
+                ],
+                'to' => [
+                    'description' => 'Only list payments up to this date (format YYYY-MM-DD)',
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'to',
+                    'required' => false
+                ],
+                'type' => [
+                    'description' => 'Payment type',
+                    'location' => 'query',
+                    'type' => 'string',
+                    'enum' => ['CREDIT_NOTE', 'BANK_TRANSFER', 'DEBIT', 'CASH', 'PAYPAL', 'CREDIT_CARD', 'MISC'],
                     'sentAs' => 'type',
                     'required' => false,
-                ),
-                'user_id'  => array(
+                ],
+                'user_id' => [
                     'description' => 'ID of the user',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'user_id',
-                    'required'    => false
-                )
-            )
-        ),
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'user_id',
+                    'required' => false
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'GetCreditNotePayment' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/credit-note-payments/{id}',
-            'summary'          => 'Get a specific credit note payment',
+        'GetCreditNotePayment' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/credit-note-payments/{id}',
+            'summary' => 'Get a specific credit note payment',
             'documentationUrl' => 'http://www.billomat.com/en/api/credit-notes/payments',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'ID of the credit note payment',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                )
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'CreateCreditNotePayment' => array(
-            'httpMethod'       => 'POST',
-            'uri'              => '/api/credit-note-payments',
-            'summary'          => 'Create an credit note payment',
+        'CreateCreditNotePayment' => [
+            'httpMethod' => 'POST',
+            'uri' => '/api/credit-note-payments',
+            'summary' => 'Create an credit note payment',
             'documentationUrl' => 'http://www.billomat.com/en/api/credit-notes/payments',
-            'parameters'       => array(
-                'credit-note-payment'  => $creditNotePaymentParameterCreate
-            )
-        ),
+            'parameters' => [
+                'credit-note-payment' => $creditNotePaymentParameterCreate
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'DeleteCreditNotePayment' => array(
-            'httpMethod'       => 'DELETE',
-            'uri'              => '/api/credit-note-payments/{id}',
-            'summary'          => 'Delete a specific credit note payment',
+        'DeleteCreditNotePayment' => [
+            'httpMethod' => 'DELETE',
+            'uri' => '/api/credit-note-payments/{id}',
+            'summary' => 'Delete a specific credit note payment',
             'documentationUrl' => 'http://www.billomat.com/en/api/credit-notes/payments',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'ID of the credit note payment',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                )
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
         /**
          * --------------------------------------------------------------------------------
@@ -3104,126 +3162,132 @@ return array(
          * --------------------------------------------------------------------------------
          */
 
-        'GetTemplates' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/templates',
-            'summary'          => 'List all templates',
+        'GetTemplates' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/templates',
+            'summary' => 'List all templates',
             'documentationUrl' => 'http://www.billomat.com/en/api/templates',
-            'parameters'       => array(
-                'per_page'  => array(
+            'parameters' => [
+                'per_page' => [
                     'description' => 'Rows per page',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'per_page',
-                    'required'    => false
-                ),
-                'page'  => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'per_page',
+                    'required' => false
+                ],
+                'page' => [
                     'description' => 'Page',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'page',
-                    'required'    => false
-                ),
-                'order_by'  => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'page',
+                    'required' => false
+                ],
+                'order_by' => [
                     'description' => 'Order by',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'order_by',
-                    'required'    => false
-                ),
-                'type'  => array(
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'order_by',
+                    'required' => false
+                ],
+                'type' => [
                     'description' => 'Type of the template',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'enum' => array('INVOICE', 'OFFER', 'CONFIRMATION', 'REMINDER', 'DELIVERY_NOTE', 'CREDIT_NOTE'),
-                    'sentAs'      => 'type',
-                    'required'    => false
-                )
-            )
-        ),
+                    'location' => 'query',
+                    'type' => 'string',
+                    'enum' => ['INVOICE', 'OFFER', 'CONFIRMATION', 'REMINDER', 'DELIVERY_NOTE', 'CREDIT_NOTE'],
+                    'sentAs' => 'type',
+                    'required' => false
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'GetTemplate' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/templates/{id}',
-            'summary'          => 'Get a specific template',
+        'GetTemplate' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/templates/{id}',
+            'summary' => 'Get a specific template',
             'documentationUrl' => 'http://www.billomat.com/en/api/templates',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Template id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                )
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'GetTemplatePreview' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/templates/{id}/thumb',
-            'summary'          => 'Get a specific template’s preview',
+        'GetTemplatePreview' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/templates/{id}/thumb',
+            'summary' => 'Get a specific template’s preview',
             'documentationUrl' => 'http://www.billomat.com/en/api/templates',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Template id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                ),
-                'format'  => array(
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ],
+                'format' => [
                     'description' => 'Format',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'enum'        => array('png', 'gif', 'jpg'),
-                    'sentAs'      => 'format',
-                    'required'    => false
-                )
-            )
-        ),
+                    'location' => 'query',
+                    'type' => 'string',
+                    'enum' => ['png', 'gif', 'jpg'],
+                    'sentAs' => 'format',
+                    'required' => false
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'CreateTemplate' => array(
-            'httpMethod'       => 'POST',
-            'uri'              => '/api/templates',
-            'summary'          => 'Create a template',
+        'CreateTemplate' => [
+            'httpMethod' => 'POST',
+            'uri' => '/api/templates',
+            'summary' => 'Create a template',
             'documentationUrl' => 'http://www.billomat.com/en/api/templates',
-            'parameters'       => array(
-                'template'  => $templateParameterCreate
-            )
-        ),
+            'parameters' => [
+                'template' => $templateParameterCreate
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'UpdateTemplate' => array(
-            'httpMethod'       => 'PUT',
-            'uri'              => '/api/templates/{id}',
-            'summary'          => 'Update a template',
+        'UpdateTemplate' => [
+            'httpMethod' => 'PUT',
+            'uri' => '/api/templates/{id}',
+            'summary' => 'Update a template',
             'documentationUrl' => 'http://www.billomat.com/en/api/templates',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Template id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                ),
-                'template'  => $templateParameter
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ],
+                'template' => $templateParameter
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'DeleteTemplate' => array(
-            'httpMethod'       => 'DELETE',
-            'uri'              => '/api/templates/{id}',
-            'summary'          => 'Delete a template',
+        'DeleteTemplate' => [
+            'httpMethod' => 'DELETE',
+            'uri' => '/api/templates/{id}',
+            'summary' => 'Delete a template',
             'documentationUrl' => 'http://www.billomat.com/en/api/templates',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Template id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                )
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
         /**
          * --------------------------------------------------------------------------------
@@ -3231,94 +3295,99 @@ return array(
          * --------------------------------------------------------------------------------
          */
 
-        'GetArticleProperties' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/article-properties',
-            'summary'          => 'List all article properties',
+        'GetArticleProperties' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/article-properties',
+            'summary' => 'List all article properties',
             'documentationUrl' => 'http://www.billomat.com/en/api/settings/article-properties',
-            'parameters'       => array(
-                'per_page'  => array(
+            'parameters' => [
+                'per_page' => [
                     'description' => 'Rows per page',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'per_page',
-                    'required'    => false
-                ),
-                'page'  => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'per_page',
+                    'required' => false
+                ],
+                'page' => [
                     'description' => 'Page',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'page',
-                    'required'    => false
-                ),
-                'order_by'  => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'page',
+                    'required' => false
+                ],
+                'order_by' => [
                     'description' => 'Order by',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'order_by',
-                    'required'    => false
-                )
-            )
-        ),
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'order_by',
+                    'required' => false
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'GetArticleProperty' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/article-properties/{id}',
-            'summary'          => 'Get a specific article property',
+        'GetArticleProperty' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/article-properties/{id}',
+            'summary' => 'Get a specific article property',
             'documentationUrl' => 'http://www.billomat.com/en/api/settings/article-properties',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Article property id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                )
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'CreateArticleProperty' => array(
-            'httpMethod'       => 'POST',
-            'uri'              => '/api/article-properties',
-            'summary'          => 'Create a article property',
+        'CreateArticleProperty' => [
+            'httpMethod' => 'POST',
+            'uri' => '/api/article-properties',
+            'summary' => 'Create a article property',
             'documentationUrl' => 'http://www.billomat.com/en/api/settings/article-properties',
-            'parameters'       => array(
-                'article-property'  => $articlePropertyParameterCreate
-            )
-        ),
+            'parameters' => [
+                'article-property' => $articlePropertyParameterCreate
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'UpdateArticleProperty' => array(
-            'httpMethod'       => 'PUT',
-            'uri'              => '/api/article-properties/{id}',
-            'summary'          => 'Update a specific article property',
+        'UpdateArticleProperty' => [
+            'httpMethod' => 'PUT',
+            'uri' => '/api/article-properties/{id}',
+            'summary' => 'Update a specific article property',
             'documentationUrl' => 'http://www.billomat.com/en/api/settings/article-properties',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Article property id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                ),
-                'article-property'  => $articlePropertyParameter
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ],
+                'article-property' => $articlePropertyParameter
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'DeleteArticleProperty' => array(
-            'httpMethod'       => 'DELETE',
-            'uri'              => '/api/article-properties/{id}',
-            'summary'          => 'Delete a specific article property',
+        'DeleteArticleProperty' => [
+            'httpMethod' => 'DELETE',
+            'uri' => '/api/article-properties/{id}',
+            'summary' => 'Delete a specific article property',
             'documentationUrl' => 'http://www.billomat.com/en/api/settings/article-properties',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Article property id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                )
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
         /**
          * --------------------------------------------------------------------------------
@@ -3326,94 +3395,99 @@ return array(
          * --------------------------------------------------------------------------------
          */
 
-        'GetClientProperties' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/client-properties',
-            'summary'          => 'List all client properties',
+        'GetClientProperties' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/client-properties',
+            'summary' => 'List all client properties',
             'documentationUrl' => 'http://www.billomat.com/en/api/settings/client-properties',
-            'parameters'       => array(
-                'per_page'  => array(
+            'parameters' => [
+                'per_page' => [
                     'description' => 'Rows per page',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'per_page',
-                    'required'    => false
-                ),
-                'page'  => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'per_page',
+                    'required' => false
+                ],
+                'page' => [
                     'description' => 'Page',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'page',
-                    'required'    => false
-                ),
-                'order_by'  => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'page',
+                    'required' => false
+                ],
+                'order_by' => [
                     'description' => 'Order by',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'order_by',
-                    'required'    => false
-                )
-            )
-        ),
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'order_by',
+                    'required' => false
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'GetClientProperty' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/client-properties/{id}',
-            'summary'          => 'Get a specific client property',
+        'GetClientProperty' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/client-properties/{id}',
+            'summary' => 'Get a specific client property',
             'documentationUrl' => 'http://www.billomat.com/en/api/settings/client-properties',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Client property id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                )
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'CreateClientProperty' => array(
-            'httpMethod'       => 'POST',
-            'uri'              => '/api/client-properties',
-            'summary'          => 'Create a client property',
+        'CreateClientProperty' => [
+            'httpMethod' => 'POST',
+            'uri' => '/api/client-properties',
+            'summary' => 'Create a client property',
             'documentationUrl' => 'http://www.billomat.com/en/api/settings/client-properties',
-            'parameters'       => array(
-                'client-property'  => $clientPropertyParameterCreate
-            )
-        ),
+            'parameters' => [
+                'client-property' => $clientPropertyParameterCreate
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'UpdateClientProperty' => array(
-            'httpMethod'       => 'PUT',
-            'uri'              => '/api/client-properties/{id}',
-            'summary'          => 'Update a specific client property',
+        'UpdateClientProperty' => [
+            'httpMethod' => 'PUT',
+            'uri' => '/api/client-properties/{id}',
+            'summary' => 'Update a specific client property',
             'documentationUrl' => 'http://www.billomat.com/en/api/settings/client-properties',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Client property id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                ),
-                'client-property'  => $clientPropertyParameter
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ],
+                'client-property' => $clientPropertyParameter
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'DeleteClientProperty' => array(
-            'httpMethod'       => 'DELETE',
-            'uri'              => '/api/client-properties/{id}',
-            'summary'          => 'Delete a specific client property',
+        'DeleteClientProperty' => [
+            'httpMethod' => 'DELETE',
+            'uri' => '/api/client-properties/{id}',
+            'summary' => 'Delete a specific client property',
             'documentationUrl' => 'http://www.billomat.com/en/api/settings/client-properties',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Client property id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                )
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
         /**
          * --------------------------------------------------------------------------------
@@ -3421,94 +3495,99 @@ return array(
          * --------------------------------------------------------------------------------
          */
 
-        'GetUserProperties' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/user-properties',
-            'summary'          => 'List all user properties',
+        'GetUserProperties' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/user-properties',
+            'summary' => 'List all user properties',
             'documentationUrl' => 'http://www.billomat.com/en/api/settings/user-properties',
-            'parameters'       => array(
-                'per_page'  => array(
+            'parameters' => [
+                'per_page' => [
                     'description' => 'Rows per page',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'per_page',
-                    'required'    => false
-                ),
-                'page'  => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'per_page',
+                    'required' => false
+                ],
+                'page' => [
                     'description' => 'Page',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'page',
-                    'required'    => false
-                ),
-                'order_by'  => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'page',
+                    'required' => false
+                ],
+                'order_by' => [
                     'description' => 'Order by',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'order_by',
-                    'required'    => false
-                )
-            )
-        ),
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'order_by',
+                    'required' => false
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'GetUserProperty' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/user-properties/{id}',
-            'summary'          => 'Get a specific user property',
+        'GetUserProperty' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/user-properties/{id}',
+            'summary' => 'Get a specific user property',
             'documentationUrl' => 'http://www.billomat.com/en/api/settings/user-properties',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'User property id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                )
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'CreateUserProperty' => array(
-            'httpMethod'       => 'POST',
-            'uri'              => '/api/user-properties',
-            'summary'          => 'Create a user property',
+        'CreateUserProperty' => [
+            'httpMethod' => 'POST',
+            'uri' => '/api/user-properties',
+            'summary' => 'Create a user property',
             'documentationUrl' => 'http://www.billomat.com/en/api/settings/user-properties',
-            'parameters'       => array(
-                'user-property'  => $userPropertyParameterCreate
-            )
-        ),
+            'parameters' => [
+                'user-property' => $userPropertyParameterCreate
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'UpdateUserProperty' => array(
-            'httpMethod'       => 'PUT',
-            'uri'              => '/api/user-properties/{id}',
-            'summary'          => 'Update a specific user property',
+        'UpdateUserProperty' => [
+            'httpMethod' => 'PUT',
+            'uri' => '/api/user-properties/{id}',
+            'summary' => 'Update a specific user property',
             'documentationUrl' => 'http://www.billomat.com/en/api/settings/user-properties',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'User property id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                ),
-                'user-property'  => $userPropertyParameter
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ],
+                'user-property' => $userPropertyParameter
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'DeleteUserProperty' => array(
-            'httpMethod'       => 'DELETE',
-            'uri'              => '/api/user-properties/{id}',
-            'summary'          => 'Delete a specific user property',
+        'DeleteUserProperty' => [
+            'httpMethod' => 'DELETE',
+            'uri' => '/api/user-properties/{id}',
+            'summary' => 'Delete a specific user property',
             'documentationUrl' => 'http://www.billomat.com/en/api/settings/user-properties',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'User property id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                )
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
         /**
          * --------------------------------------------------------------------------------
@@ -3516,94 +3595,99 @@ return array(
          * --------------------------------------------------------------------------------
          */
 
-        'GetTaxes' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/taxes',
-            'summary'          => 'List all taxes',
+        'GetTaxes' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/taxes',
+            'summary' => 'List all taxes',
             'documentationUrl' => 'http://www.billomat.com/en/api/settings/taxes',
-            'parameters'       => array(
-                'per_page'  => array(
+            'parameters' => [
+                'per_page' => [
                     'description' => 'Rows per page',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'per_page',
-                    'required'    => false
-                ),
-                'page'  => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'per_page',
+                    'required' => false
+                ],
+                'page' => [
                     'description' => 'Page',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'page',
-                    'required'    => false
-                ),
-                'order_by'  => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'page',
+                    'required' => false
+                ],
+                'order_by' => [
                     'description' => 'Order by',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'order_by',
-                    'required'    => false
-                )
-            )
-        ),
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'order_by',
+                    'required' => false
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'GetTax' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/taxes/{id}',
-            'summary'          => 'Get a specific tax',
+        'GetTax' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/taxes/{id}',
+            'summary' => 'Get a specific tax',
             'documentationUrl' => 'http://www.billomat.com/en/api/settings/taxes',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Tax id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                )
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'CreateTax' => array(
-            'httpMethod'       => 'POST',
-            'uri'              => '/api/taxes',
-            'summary'          => 'Create a tax',
+        'CreateTax' => [
+            'httpMethod' => 'POST',
+            'uri' => '/api/taxes',
+            'summary' => 'Create a tax',
             'documentationUrl' => 'http://www.billomat.com/en/api/settings/taxes',
-            'parameters'       => array(
-                'tax'  => $taxParameterCreate
-            )
-        ),
+            'parameters' => [
+                'tax' => $taxParameterCreate
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'UpdateTax' => array(
-            'httpMethod'       => 'PUT',
-            'uri'              => '/api/taxes/{id}',
-            'summary'          => 'Update a tax',
+        'UpdateTax' => [
+            'httpMethod' => 'PUT',
+            'uri' => '/api/taxes/{id}',
+            'summary' => 'Update a tax',
             'documentationUrl' => 'http://www.billomat.com/en/api/settings/taxes',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Tax id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                ),
-                'tax'  => $taxParameter
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ],
+                'tax' => $taxParameter
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'DeleteTax' => array(
-            'httpMethod'       => 'DELETE',
-            'uri'              => '/api/taxes/{id}',
-            'summary'          => 'Delete a tax',
+        'DeleteTax' => [
+            'httpMethod' => 'DELETE',
+            'uri' => '/api/taxes/{id}',
+            'summary' => 'Delete a tax',
             'documentationUrl' => 'http://www.billomat.com/en/api/settings/taxes',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Tax id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                )
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
         /**
          * --------------------------------------------------------------------------------
@@ -3611,94 +3695,99 @@ return array(
          * --------------------------------------------------------------------------------
          */
 
-        'GetCountryTaxes' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/country-taxes',
-            'summary'          => 'List all tax free countries',
+        'GetCountryTaxes' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/country-taxes',
+            'summary' => 'List all tax free countries',
             'documentationUrl' => 'http://www.billomat.com/en/api/settings/tax-free-countries',
-            'parameters'       => array(
-                'per_page'  => array(
+            'parameters' => [
+                'per_page' => [
                     'description' => 'Rows per page',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'per_page',
-                    'required'    => false
-                ),
-                'page'  => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'per_page',
+                    'required' => false
+                ],
+                'page' => [
                     'description' => 'Page',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'page',
-                    'required'    => false
-                ),
-                'order_by'  => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'page',
+                    'required' => false
+                ],
+                'order_by' => [
                     'description' => 'Order by',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'order_by',
-                    'required'    => false
-                )
-            )
-        ),
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'order_by',
+                    'required' => false
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'GetCountryTax' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/country-taxes/{id}',
-            'summary'          => 'Get a specific tax free country',
+        'GetCountryTax' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/country-taxes/{id}',
+            'summary' => 'Get a specific tax free country',
             'documentationUrl' => 'http://www.billomat.com/en/api/settings/tax-free-countries',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Tax free country id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                )
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'CreateCountryTax' => array(
-            'httpMethod'       => 'POST',
-            'uri'              => '/api/country-taxes',
-            'summary'          => 'Create a tax free country',
+        'CreateCountryTax' => [
+            'httpMethod' => 'POST',
+            'uri' => '/api/country-taxes',
+            'summary' => 'Create a tax free country',
             'documentationUrl' => 'http://www.billomat.com/en/api/settings/tax-free-countries',
-            'parameters'       => array(
-                'country-tax'  => $countryTaxParameter
-            )
-        ),
+            'parameters' => [
+                'country-tax' => $countryTaxParameter
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'UpdateCountryTax' => array(
-            'httpMethod'       => 'PUT',
-            'uri'              => '/api/country-taxes/{id}',
-            'summary'          => 'Update a tax free country',
+        'UpdateCountryTax' => [
+            'httpMethod' => 'PUT',
+            'uri' => '/api/country-taxes/{id}',
+            'summary' => 'Update a tax free country',
             'documentationUrl' => 'http://www.billomat.com/en/api/settings/tax-free-countries',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Tax free country id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                ),
-                'country-tax'  => $countryTaxParameter
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ],
+                'country-tax' => $countryTaxParameter
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'DeleteCountryTax' => array(
-            'httpMethod'       => 'DELETE',
-            'uri'              => '/api/country-taxes/{id}',
-            'summary'          => 'Delete a tax free country',
+        'DeleteCountryTax' => [
+            'httpMethod' => 'DELETE',
+            'uri' => '/api/country-taxes/{id}',
+            'summary' => 'Delete a tax free country',
             'documentationUrl' => 'http://www.billomat.com/en/api/settings/tax-free-countries',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Tax free country id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                )
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
         /**
          * --------------------------------------------------------------------------------
@@ -3706,94 +3795,99 @@ return array(
          * --------------------------------------------------------------------------------
          */
 
-        'GetReminderTexts' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/reminder-texts',
-            'summary'          => 'List all reminder texts',
+        'GetReminderTexts' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/reminder-texts',
+            'summary' => 'List all reminder texts',
             'documentationUrl' => 'http://www.billomat.com/en/api/settings/reminder-texts',
-            'parameters'       => array(
-                'per_page'  => array(
+            'parameters' => [
+                'per_page' => [
                     'description' => 'Rows per page',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'per_page',
-                    'required'    => false
-                ),
-                'page'  => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'per_page',
+                    'required' => false
+                ],
+                'page' => [
                     'description' => 'Page',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'page',
-                    'required'    => false
-                ),
-                'order_by'  => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'page',
+                    'required' => false
+                ],
+                'order_by' => [
                     'description' => 'Order by',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'order_by',
-                    'required'    => false
-                )
-            )
-        ),
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'order_by',
+                    'required' => false
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'GetReminderText' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/reminder-texts/{id}',
-            'summary'          => 'Get a specific reminder text',
+        'GetReminderText' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/reminder-texts/{id}',
+            'summary' => 'Get a specific reminder text',
             'documentationUrl' => 'http://www.billomat.com/en/api/settings/reminder-texts',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Reminder text id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                )
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'CreateReminderText' => array(
-            'httpMethod'       => 'POST',
-            'uri'              => '/api/reminder-texts',
-            'summary'          => 'Create a reminder text',
+        'CreateReminderText' => [
+            'httpMethod' => 'POST',
+            'uri' => '/api/reminder-texts',
+            'summary' => 'Create a reminder text',
             'documentationUrl' => 'http://www.billomat.com/en/api/settings/reminder-texts',
-            'parameters'       => array(
-                'reminder-text'  => $reminderTextParameter
-            )
-        ),
+            'parameters' => [
+                'reminder-text' => $reminderTextParameter
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'UpdateReminderText' => array(
-            'httpMethod'       => 'PUT',
-            'uri'              => '/api/reminder-texts/{id}',
-            'summary'          => 'Update a reminder text',
+        'UpdateReminderText' => [
+            'httpMethod' => 'PUT',
+            'uri' => '/api/reminder-texts/{id}',
+            'summary' => 'Update a reminder text',
             'documentationUrl' => 'http://www.billomat.com/en/api/settings/reminder-texts',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Reminder text id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                ),
-                'reminder-text'  => $reminderTextParameter
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ],
+                'reminder-text' => $reminderTextParameter
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'DeleteReminderText' => array(
-            'httpMethod'       => 'DELETE',
-            'uri'              => '/api/reminder-texts/{id}',
-            'summary'          => 'Delete a reminder text',
+        'DeleteReminderText' => [
+            'httpMethod' => 'DELETE',
+            'uri' => '/api/reminder-texts/{id}',
+            'summary' => 'Delete a reminder text',
             'documentationUrl' => 'http://www.billomat.com/en/api/settings/reminder-texts',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Reminder text id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                )
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
         /**
          * --------------------------------------------------------------------------------
@@ -3801,94 +3895,99 @@ return array(
          * --------------------------------------------------------------------------------
          */
 
-        'GetEmailTemplates' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/email-templates',
-            'summary'          => 'List all email templates',
+        'GetEmailTemplates' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/email-templates',
+            'summary' => 'List all email templates',
             'documentationUrl' => 'http://www.billomat.com/en/api/settings/email-vorlagen',
-            'parameters'       => array(
-                'per_page'  => array(
+            'parameters' => [
+                'per_page' => [
                     'description' => 'Rows per page',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'per_page',
-                    'required'    => false
-                ),
-                'page'  => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'per_page',
+                    'required' => false
+                ],
+                'page' => [
                     'description' => 'Page',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'page',
-                    'required'    => false
-                ),
-                'order_by'  => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'page',
+                    'required' => false
+                ],
+                'order_by' => [
                     'description' => 'Order by',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'order_by',
-                    'required'    => false
-                )
-            )
-        ),
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'order_by',
+                    'required' => false
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'GetEmailTemplate' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/email-templates/{id}',
-            'summary'          => 'Get a specific email template',
+        'GetEmailTemplate' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/email-templates/{id}',
+            'summary' => 'Get a specific email template',
             'documentationUrl' => 'http://www.billomat.com/en/api/settings/email-vorlagen',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Email template id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                )
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'CreateEmailTemplate' => array(
-            'httpMethod'       => 'POST',
-            'uri'              => '/api/email-templates',
-            'summary'          => 'Create a email template',
+        'CreateEmailTemplate' => [
+            'httpMethod' => 'POST',
+            'uri' => '/api/email-templates',
+            'summary' => 'Create a email template',
             'documentationUrl' => 'http://www.billomat.com/en/api/settings/email-vorlagen',
-            'parameters'       => array(
-                'email-template'  => $emailTemplateParameterCreate
-            )
-        ),
+            'parameters' => [
+                'email-template' => $emailTemplateParameterCreate
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'UpdateEmailTemplate' => array(
-            'httpMethod'       => 'PUT',
-            'uri'              => '/api/email-templates/{id}',
-            'summary'          => 'Update a email template',
+        'UpdateEmailTemplate' => [
+            'httpMethod' => 'PUT',
+            'uri' => '/api/email-templates/{id}',
+            'summary' => 'Update a email template',
             'documentationUrl' => 'http://www.billomat.com/en/api/settings/email-vorlagen',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Email template id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                ),
-                'email-template'  => $emailTemplateParameter
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ],
+                'email-template' => $emailTemplateParameter
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'DeleteEmailTemplate' => array(
-            'httpMethod'       => 'DELETE',
-            'uri'              => '/api/email-templates/{id}',
-            'summary'          => 'Delete a email template',
+        'DeleteEmailTemplate' => [
+            'httpMethod' => 'DELETE',
+            'uri' => '/api/email-templates/{id}',
+            'summary' => 'Delete a email template',
             'documentationUrl' => 'http://www.billomat.com/en/api/settings/email-vorlagen',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Email template id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                )
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
         /**
          * --------------------------------------------------------------------------------
@@ -3896,282 +3995,300 @@ return array(
          * --------------------------------------------------------------------------------
          */
 
-        'GetUserPropertyValues' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/user-property-values',
-            'summary'          => 'List all user property values',
+        'GetUserPropertyValues' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/user-property-values',
+            'summary' => 'List all user property values',
             'documentationUrl' => 'http://www.billomat.com/en/api/users/properties',
-            'parameters'       => array(
-                'per_page'  => array(
+            'parameters' => [
+                'per_page' => [
                     'description' => 'Rows per page',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'per_page',
-                    'required'    => false
-                ),
-                'page'  => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'per_page',
+                    'required' => false
+                ],
+                'page' => [
                     'description' => 'Page',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'page',
-                    'required'    => false
-                ),
-                'order_by'  => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'page',
+                    'required' => false
+                ],
+                'order_by' => [
                     'description' => 'Order by',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'sentAs'      => 'order_by',
-                    'required'    => false
-                ),
-                'user_id'  => array(
+                    'location' => 'query',
+                    'type' => 'string',
+                    'sentAs' => 'order_by',
+                    'required' => false
+                ],
+                'user_id' => [
                     'description' => 'ID of a user',
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'sentAs'      => 'user_id',
-                    'required'    => true
-                )
-            )
-        ),
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'sentAs' => 'user_id',
+                    'required' => true
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'GetUserPropertyValue' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/user-property-values/{id}',
-            'summary'          => 'Get a specific property',
+        'GetUserPropertyValue' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/user-property-values/{id}',
+            'summary' => 'Get a specific property',
             'documentationUrl' => 'http://www.billomat.com/en/api/users/properties',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'User property value id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                )
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'SetUserPropertyValue' => array(
-            'httpMethod'       => 'POST',
-            'uri'              => '/api/user-property-values',
-            'summary'          => 'Set a specific user property',
+        'SetUserPropertyValue' => [
+            'httpMethod' => 'POST',
+            'uri' => '/api/user-property-values',
+            'summary' => 'Set a specific user property',
             'documentationUrl' => 'http://www.billomat.com/en/api/users/properties',
-            'parameters'       => array(
-                'user-property-value'  => $userPropertyValueParameter
-            )
-        ),
+            'parameters' => [
+                'user-property-value' => $userPropertyValueParameter
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'GetSuppliers' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/suppliers',
-            'summary'          => 'List all suppliers',
+        'GetSuppliers' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/suppliers',
+            'summary' => 'List all suppliers',
             'documentationUrl' => 'http://www.billomat.com/en/api/suppliers',
-            'parameters'       => array(
-                'name'  => array(
+            'parameters' => [
+                'name' => [
                     'description' => 'Company name',
-                    'type'        => 'string',
-                    'location'    => 'query',
-                    'sentAs'      => 'name',
-                    'required'    => false
-                ),
-                'email'  => array(
+                    'type' => 'string',
+                    'location' => 'query',
+                    'sentAs' => 'name',
+                    'required' => false
+                ],
+                'email' => [
                     'description' => 'e-mail address',
-                    'type'        => 'string',
-                    'location'    => 'query',
-                    'sentAs'      => 'email',
-                    'required'    => false
-                ),
-                'first_name'  => array(
+                    'type' => 'string',
+                    'location' => 'query',
+                    'sentAs' => 'email',
+                    'required' => false
+                ],
+                'first_name' => [
                     'description' => 'First name of the contact person',
-                    'type'        => 'string',
-                    'location'    => 'query',
-                    'sentAs'      => 'first_name',
-                    'required'    => false
-                ),
-                'last_name'  => array(
+                    'type' => 'string',
+                    'location' => 'query',
+                    'sentAs' => 'first_name',
+                    'required' => false
+                ],
+                'last_name' => [
                     'description' => 'Last name of the contact person',
-                    'type'        => 'string',
-                    'location'    => 'query',
-                    'sentAs'      => 'last_name',
-                    'required'    => false
-                ),
-                'country_code'  => array(
+                    'type' => 'string',
+                    'location' => 'query',
+                    'sentAs' => 'last_name',
+                    'required' => false
+                ],
+                'country_code' => [
                     'description' => 'Country code as ISO 3166 Alpha-2',
-                    'type'        => 'string',
-                    'location'    => 'query',
-                    'sentAs'      => 'country_code',
-                    'required'    => false
-                ),
-                'creditor_identifier'  => array(
+                    'type' => 'string',
+                    'location' => 'query',
+                    'sentAs' => 'country_code',
+                    'required' => false
+                ],
+                'creditor_identifier' => [
                     'description' => 'SEPA creditor identifier',
-                    'type'        => 'string',
-                    'location'    => 'query',
-                    'sentAs'      => 'creditor_identifier',
-                    'required'    => false
-                ),
-                'note'  => array(
+                    'type' => 'string',
+                    'location' => 'query',
+                    'sentAs' => 'creditor_identifier',
+                    'required' => false
+                ],
+                'note' => [
                     'description' => 'Note',
-                    'type'        => 'string',
-                    'location'    => 'query',
-                    'sentAs'      => 'note',
-                    'required'    => false
-                ),
-                'client_number'  => array(
+                    'type' => 'string',
+                    'location' => 'query',
+                    'sentAs' => 'note',
+                    'required' => false
+                ],
+                'client_number' => [
                     'description' => 'Client number you may have at this supplier.',
-                    'type'        => 'string',
-                    'location'    => 'query',
-                    'sentAs'      => 'client_number',
-                    'required'    => false
-                ),
-                'incoming_id'  => array(
+                    'type' => 'string',
+                    'location' => 'query',
+                    'sentAs' => 'client_number',
+                    'required' => false
+                ],
+                'incoming_id' => [
                     'description' => 'ID of an incoming of this supplier, multiple values seperated with commas',
-                    'type'        => 'string',
-                    'location'    => 'query',
-                    'sentAs'      => 'incoming_id',
-                    'required'    => false
-                ),
-                'tags'  => array(
+                    'type' => 'string',
+                    'location' => 'query',
+                    'sentAs' => 'incoming_id',
+                    'required' => false
+                ],
+                'tags' => [
                     'description' => 'Comma seperated list of tags',
-                    'type'        => 'string',
-                    'location'    => 'query',
-                    'sentAs'      => 'tags',
-                    'required'    => false
-                )
-            )
-        ),
+                    'type' => 'string',
+                    'location' => 'query',
+                    'sentAs' => 'tags',
+                    'required' => false
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'GetSupplier' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/suppliers/{id}',
-            'summary'          => 'Get a specific supplier',
+        'GetSupplier' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/suppliers/{id}',
+            'summary' => 'Get a specific supplier',
             'documentationUrl' => 'http://www.billomat.com/en/api/suppliers',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Supplier id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                )
-            )
-        ),
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'GetIncomings' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/incomings',
-            'summary'          => 'List all incomings',
+        'GetIncomings' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/incomings',
+            'summary' => 'List all incomings',
             'documentationUrl' => 'http://www.billomat.com/en/api/incomings',
-            'parameters'       => array(
-                'supplier_id'  => array(
+            'parameters' => [
+                'supplier_id' => [
                     'description' => 'ID of the Suppliers',
-                    'type'        => 'integer',
-                    'location'    => 'query',
-                    'sentAs'      => 'supplier_id',
-                    'required'    => false
-                ),
-                'incoming_number'  => array(
+                    'type' => 'integer',
+                    'location' => 'query',
+                    'sentAs' => 'supplier_id',
+                    'required' => false
+                ],
+                'incoming_number' => [
                     'description' => 'incoming number of the incoming',
-                    'type'        => 'varchar',
-                    'location'    => 'query',
-                    'sentAs'      => 'incoming_number',
-                    'required'    => false
-                ),
-                'status'  => array(
+                    'type' => 'varchar',
+                    'location' => 'query',
+                    'sentAs' => 'incoming_number',
+                    'required' => false
+                ],
+                'status' => [
                     'description' => 'Status (OPEN, PAID, OVERDUE). More than one statuses could be given as a comma separated list. Theses statuses will be logically OR-connected.',
-                    'type'        => 'string',
-                    'location'    => 'query',
-                    'sentAs'      => 'status',
-                    'required'    => false
-                ),
-                'from'  => array(
+                    'type' => 'string',
+                    'location' => 'query',
+                    'sentAs' => 'status',
+                    'required' => false
+                ],
+                'from' => [
                     'description' => 'Only show incomings since this date (format YYYY-MM-DD)',
-                    'type'        => 'string',
-                    'location'    => 'query',
-                    'sentAs'      => 'from',
-                    'required'    => false
-                ),
-                'to'  => array(
+                    'type' => 'string',
+                    'location' => 'query',
+                    'sentAs' => 'from',
+                    'required' => false
+                ],
+                'to' => [
                     'description' => 'Only show incomings up to this date (format YYYY-MM-DD)',
-                    'type'        => 'string',
-                    'location'    => 'query',
-                    'sentAs'      => 'to',
-                    'required'    => false
-                ),
-                'note'  => array(
+                    'type' => 'string',
+                    'location' => 'query',
+                    'sentAs' => 'to',
+                    'required' => false
+                ],
+                'note' => [
                     'description' => 'Free text search in notes',
-                    'type'        => 'string',
-                    'location'    => 'query',
-                    'sentAs'      => 'note',
-                    'required'    => false
-                ),
-                'tags'  => array(
+                    'type' => 'string',
+                    'location' => 'query',
+                    'sentAs' => 'note',
+                    'required' => false
+                ],
+                'tags' => [
                     'description' => 'Comma seperated list of tags',
-                    'type'        => 'varchar',
-                    'location'    => 'query',
-                    'sentAs'      => 'tags',
-                    'required'    => false
-                )
-            )
-        ),
+                    'type' => 'varchar',
+                    'location' => 'query',
+                    'sentAs' => 'tags',
+                    'required' => false
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'GetIncomingPdf' => array(
-            'httpMethod'       => 'GET',
-            'uri'              => '/api/incomings/{id}/pdf',
-            'summary'          => 'Open pdf of an incoming',
+        'GetIncomingPdf' => [
+            'httpMethod' => 'GET',
+            'uri' => '/api/incomings/{id}/pdf',
+            'summary' => 'Open pdf of an incoming',
             'documentationUrl' => 'http://www.billomat.com/en/api/incoming',
-            'parameters'       => array(
-                'id'  => array(
+            'parameters' => [
+                'id' => [
                     'description' => 'Incoming id',
-                    'location'    => 'uri',
-                    'type'        => 'integer',
-                    'sentAs'      => 'id',
-                    'required'    => true
-                ),
-                'accept'  => array(
+                    'location' => 'uri',
+                    'type' => 'integer',
+                    'sentAs' => 'id',
+                    'required' => true
+                ],
+                'accept' => [
                     'description' => 'Accept header',
-                    'location'    => 'header',
-                    'type'        => 'string',
-                    'enum' => array('application/pdf'),
-                    'sentAs'      => 'Accept',
-                    'required'    => false
-                ),
-                'format'  => array(
+                    'location' => 'header',
+                    'type' => 'string',
+                    'enum' => ['application/pdf'],
+                    'sentAs' => 'Accept',
+                    'required' => false
+                ],
+                'format' => [
                     'description' => 'Response format',
-                    'location'    => 'query',
-                    'type'        => 'string',
-                    'enum' => array('pdf'),
-                    'sentAs'      => 'format',
-                    'required'    => false
-                )
-            )
-        ),
+                    'location' => 'query',
+                    'type' => 'string',
+                    'enum' => ['pdf'],
+                    'sentAs' => 'format',
+                    'required' => false
+                ]
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'CreateIncomingTag' => array(
-            'httpMethod'       => 'POST',
-            'uri'              => '/api/incoming-tags',
-            'summary'          => 'Create an incoming tag',
+        'CreateIncomingTag' => [
+            'httpMethod' => 'POST',
+            'uri' => '/api/incoming-tags',
+            'summary' => 'Create an incoming tag',
             'documentationUrl' => 'http://www.billomat.com/en/api/incomings/tags',
-            'parameters'       => array(
-                'incoming-tag'  => $incomingTagParameterCreate
-            )
-        ),
+            'parameters' => [
+                'incoming-tag' => $incomingTagParameterCreate
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'CreateIncomingPayment' => array(
-            'httpMethod'       => 'POST',
-            'uri'              => '/api/incoming-payments',
-            'summary'          => 'Create an incoming payment',
+        'CreateIncomingPayment' => [
+            'httpMethod' => 'POST',
+            'uri' => '/api/incoming-payments',
+            'summary' => 'Create an incoming payment',
             'documentationUrl' => 'http://www.billomat.com/en/api/incoming/payments',
-            'parameters'       => array(
-                'incoming-payment'  => $incomingPaymentParameterCreate
-            )
-        ),
+            'parameters' => [
+                'incoming-payment' => $incomingPaymentParameterCreate
+            ],
+            'responseModel' => 'Generic',
+        ],
 
-        'CreateIncomingInboxDocument' => array(
-            'httpMethod'       => 'POST',
-            'uri'              => '/api/inbox-documents',
-            'summary'          => 'Create an inbox document',
+        'CreateIncomingInboxDocument' => [
+            'httpMethod' => 'POST',
+            'uri' => '/api/inbox-documents',
+            'summary' => 'Create an inbox document',
             'documentationUrl' => 'http://www.billomat.com/en/api/incomings/inbox',
-            'parameters'       => array(
-                'inbox-document'  => $incomingInboxDocumentParameterCreate
-            )
-        ),
-    ),
-);
+            'parameters' => [
+                'inbox-document' => $incomingInboxDocumentParameterCreate
+            ],
+            'responseModel' => 'Generic',
+        ],
+    ],
+    'models' => [
+        'Generic' => [
+            'type' => 'object',
+            'additionalProperties' => [
+                'location' => 'json'
+            ],
+        ],
+    ],
+];
