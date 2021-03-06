@@ -1,5 +1,5 @@
 {
-    "name": "vrok/billomat",
+    "name": "vrok/billomat-client",
     "type": "library",
     "license": "MIT",
     "description": "PHP library for interacting with the Billomat REST API",
@@ -8,7 +8,7 @@
         "invoice",
         "billing"
     ],
-    "homepage": "https://github.com/Phobetor/billomat",
+    "homepage": "https://github.com/vrok/billomat-client",
     "authors": [
         {
             "name": "Andreas Kintzinger",
