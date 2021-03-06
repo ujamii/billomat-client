@@ -279,7 +279,9 @@ class BillomatClient extends GuzzleClient
         $command = $this->getCommand(ucfirst($method), $args);
 
         // @todo without this the CurlHandler sends the request using
-        // chunked encoding and Billomat returns "error reading input data"
+        // chunked encoding and Billomat returns "error reading input data".
+        // This can probably cause errors when uploading (large) files, tested
+        // & works with 3.8MB PDF
         $command['@http'] = [
             'curl' => ['body_as_string' => true],
         ];
